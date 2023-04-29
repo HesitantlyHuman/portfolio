@@ -1,0 +1,1 @@
+Add image info to portfolio.md along with alt text
