@@ -1,5 +1,5 @@
 <script>
-    import Card from "./components/Card.svelte";
+    import Card from "../components/Card.svelte";
 
     export let name = "Tanner Sims";
     export let about_text = "About text";
@@ -14,6 +14,6 @@
 
 <style>
     section {
-        padding: 1em;
+        padding: 4em;
     }
 </style>

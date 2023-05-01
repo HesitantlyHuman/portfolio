@@ -1,13 +1,11 @@
 <script>
-	import Projects from "./sections/Projects.svelte";
-	import About from "./sections/About.svelte";
-	import Experience from "./sections/Experience.svelte";
-	import Downloads from "./sections/Downloads.svelte";
+	import Projects from "./Projects.svelte";
+	import About from "./About.svelte";
 </script>
 
 <head>
 	<link
-		href="https://fonts.googleapis.com/css?family=Work+Sans:400,600,700&display=swap"
+		href="https://fonts.googleapis.com/css?family=Work+Sans:400,700&display=swap"
 		rel="stylesheet"
 	/>
 	<link
@@ -22,8 +20,6 @@
 		about_text="Hi, I'm Tanner. I'm a software engineer and data scientist."
 	/>
 	<Projects />
-	<Experience />
-	<Downloads />
 </main>
 
 <style>
@@ -53,17 +49,6 @@
 	:global(h3) {
 		font-weight: 700;
 		font-size: 1.5em;
-	}
-
-	:global(h4) {
-		font-weight: 600;
-		font-size: 0.8em;
-	}
-
-	:global(p) {
-		font-weight: 400;
-		font-size: 1em;
-		font-family: "IBM Plex Mono", monospace;
 	}
 
 	@media (min-width: 640px) {
