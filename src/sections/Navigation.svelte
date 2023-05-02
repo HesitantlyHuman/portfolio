@@ -27,15 +27,15 @@
     export let height = "5em";
 </script>
 
-<header style="height: {height}">
+<header>
     <nav>
-        <a href="/" style="line-height: {height}">
-            <Icon name="logo" size="2em" />
+        <a href="/">
+            <Icon name="logo" style="line-height:{height}" />
         </a>
         <ul>
             {#each nav_links as link}
                 <li>
-                    <a href={link.link} style="line-height: {height}">
+                    <a href={link.link} style="line-height:{height}">
                         {link.name}
                     </a>
                 </li>
@@ -79,6 +79,7 @@
         padding-inline: 1em;
         margin: 0;
         padding: 0;
+        height: 100%;
     }
 
     header nav ul li {

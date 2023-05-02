@@ -26,7 +26,7 @@
                             <Icon
                                 name={tech.toLowerCase()}
                                 color="#697276"
-                                size="2em"
+                                size="1.8em"
                             />
                         </li>
                     {/each}
