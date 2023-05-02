@@ -3,6 +3,7 @@
 	import About from "./sections/About.svelte";
 	import Experience from "./sections/Experience.svelte";
 	import Downloads from "./sections/Downloads.svelte";
+	import ContentColumn from "./components/ContentColumn.svelte";
 </script>
 
 <head>
@@ -11,12 +12,12 @@
 		rel="stylesheet"
 	/>
 	<link
-		href="https://fonts.googleapis.com/css?family=IBM+Plex+Mono:400,700&display=swap"
+		href="https://fonts.googleapis.com/css?family=IBM+Plex+Mono:300,700&display=swap"
 		rel="stylesheet"
 	/>
 </head>
 
-<main>
+<ContentColumn>
 	<About
 		name="Tanner Sims"
 		about_text="Hi, I'm Tanner. I'm a software engineer and data scientist."
@@ -24,7 +25,7 @@
 	<Projects />
 	<Experience />
 	<Downloads />
-</main>
+</ContentColumn>
 
 <style>
 	main {
@@ -51,24 +52,19 @@
 	}
 
 	:global(h3) {
-		font-weight: 700;
-		font-size: 1.5em;
+		font-weight: 600;
+		font-size: 1.8em;
 	}
 
 	:global(h4) {
 		font-weight: 600;
-		font-size: 0.8em;
+		font-size: 1.2em;
 	}
 
 	:global(p) {
-		font-weight: 400;
+		font-weight: 300;
 		font-size: 1em;
 		font-family: "IBM Plex Mono", monospace;
-	}
-
-	@media (min-width: 640px) {
-		main {
-			max-width: none;
-		}
+		color: #2a3135;
 	}
 </style>

@@ -16,11 +16,11 @@
         font-size: 1.8em;
         margin: 0;
         padding-top: 2em;
-        padding-bottom: 0.5em;
+        height: 0.6em;
     }
 
     h2 {
         margin: 0;
-        padding-bottom: 0.5em;
+        padding: 0.5em;
     }
 </style>

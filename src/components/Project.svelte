@@ -94,6 +94,7 @@
         padding-inline: 2em;
         color: #697276;
         border-right: 2px solid #cdcecf;
+        font-size: 0.9em;
     }
 
     article .info aside ul {
