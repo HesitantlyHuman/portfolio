@@ -17,4 +17,8 @@
     div :global(> *:first-child) {
         margin-top: 0;
     }
+
+    div :global(> *:last-child) {
+        margin-bottom: 0;
+    }
 </style>

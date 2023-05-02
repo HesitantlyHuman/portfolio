@@ -6,7 +6,7 @@
     export let category = "Project Category";
     export let techs = [];
     export let description = "Project Description";
-    export let image;
+    export let image = "";
     export let image_alt = "Project Image";
     export let links = [];
 </script>
@@ -24,7 +24,7 @@
                     {#each techs as tech}
                         <li>
                             <Icon
-                                icon_name={tech.toLowerCase()}
+                                name={tech.toLowerCase()}
                                 color="#697276"
                                 size="2em"
                             />
