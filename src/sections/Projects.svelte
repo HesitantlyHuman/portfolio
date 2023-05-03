@@ -4,13 +4,13 @@
     import Project from "../components/Project.svelte";
 </script>
 
-<Section title="Projects">
+<Section title="Projects" id="projects">
     <ContentList>
         <Project
             name="Open Lyrics Dataset"
             description="A dataset of song lyrics"
             category="Data collection"
-            techs={["Python"]}
+            techs={["Python", "GitHub"]}
             links={[
                 {
                     name: "GitHub",

@@ -21,13 +21,13 @@
     ];
 </script>
 
-<footer>
+<footer id="contact">
     <h2>Contact</h2>
     <div class="contact">
         {#each contacts as contact}
             <a href={contact.link}>
                 <div class="icon">
-                    <Icon name={contact.name} size="1em" />
+                    <Icon name={contact.name} size="2em" color="white" />
                 </div>
                 <p>{contact.text}</p>
             </a>
@@ -53,19 +53,24 @@
     footer .contact {
         padding-block: 2em;
         padding-inline: 5em;
-        align-items: center;
     }
 
     footer .contact a {
         display: flex;
         flex-direction: row;
+        text-decoration: none;
+        align-items: center;
     }
 
     footer .contact a .icon {
-        width: 5em;
+        width: 3em;
+        padding: 0;
+        margin: 0;
+        display: flex;
+        align-items: center;
     }
 
-    footer .contact a > * {
-        margin: 1em;
+    footer .contact a p {
+        color: #fff;
     }
 </style>

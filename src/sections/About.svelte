@@ -6,7 +6,7 @@
 </script>
 
 <Card>
-    <section>
+    <section id="about">
         <h1>{name}</h1>
         <p>{about_text}</p>
     </section>

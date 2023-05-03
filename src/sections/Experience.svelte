@@ -4,7 +4,7 @@
     import ExperienceCard from "../components/ExperienceCard.svelte";
 </script>
 
-<Section title="Experience">
+<Section title="Experience" id="experience">
     <ContentList>
         <ExperienceCard
             company="Opsis Health"

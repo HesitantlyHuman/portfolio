@@ -79,40 +79,41 @@
     article .info aside {
         order: 1;
         display: flex;
-        flex-direction: row;
         border: 2px solid #cdcecf;
         background-color: #e6e5e5;
         border-radius: 10px;
         width: fit-content;
         padding: 0;
-        align-items: center;
     }
 
     article .info aside h4 {
+        display: flex;
+        align-items: center;
         margin: 0;
         padding-block: 0.5em;
         padding-inline: 2em;
-        color: #697276;
         border-right: 2px solid #cdcecf;
-        font-size: 0.9em;
+        font-size: 1em;
+        color: #697276;
     }
 
     article .info aside ul {
         list-style-type: none;
         display: flex;
         flex-direction: row;
-        padding-block: 0.25em;
+        padding-block: 0.33em;
         padding-inline: 1em;
         margin: 0;
-        align-items: center;
     }
 
-    article .info aside ul > li {
+    article .info aside ul li {
+        display: flex;
+        align-items: center;
         margin-left: 1em;
         color: #2a3135;
     }
 
-    article .info aside ul > li:first-child {
+    article .info aside ul li:first-child {
         margin-left: 0;
     }
 

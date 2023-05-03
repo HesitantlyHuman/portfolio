@@ -1,8 +1,9 @@
 <script>
     export let title;
+    export let id;
 </script>
 
-<section>
+<section {id}>
     <p>=================================</p>
     <h2>{title}</h2>
     <slot />
