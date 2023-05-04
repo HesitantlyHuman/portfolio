@@ -27,89 +27,87 @@
 
     export let height = "5em";
 
-    // Maybe just keep track of what the next element is and check it from the DOM every time
-    // just in case the position changes because of interactive elements
+    let section_elements = {};
+    let section_element_cached_positions = {};
+    let current_element_id = null;
+    let above_element_position = 0;
+    let below_element_position = 0;
 
-    let scroll_positions_lookup = [];
-    let lower_bound = Infinity;
-    let upper_bound = 0;
-    let current_scroll_index = 0;
+    const cache_element_positions = (entries) => {
+        console.log("Caching element positions");
+        for (let i = 0; i < entries.length; i++) {
+            if (entries[i].id in section_element_cached_positions) {
+                section_element_cached_positions[entries[i].id] =
+                    entries[i].element.offsetTop;
+            }
+        }
+    };
+
+    const observer = new ResizeObserver(cache_element_positions);
 
     onMount(() => {
-        updateScrollPositionsLookup();
-        updateScrollState();
+        for (const nav_link_info of nav_links) {
+            const id = nav_link_info.link;
+            const element = document.getElementById(id);
+            section_elements[id] = element;
+            section_element_cached_positions[id] = null;
+            observer.observe(element);
+        }
     });
 
     afterUpdate(() => {
-        updateScrollPositionsLookup();
-        updateScrollState();
+        for (const section_id in section_element_cached_positions) {
+            const element = section_elements[section_id];
+            section_element_cached_positions[section_id] = element.offsetTop;
+        }
     });
 
-    function updateScrollPositionsLookup() {
-        scroll_positions_lookup = [];
-        for (let i = 0; i < nav_links.length; i++) {
-            let section_id = nav_links[i].link;
-            let section_element = document.getElementById(section_id);
-            let section_position = section_element.offsetTop;
-            scroll_positions_lookup.push([section_position, section_id]);
-        }
+    function setActive(element) {
+        element.classList.add("active");
     }
 
-    function setNavLinkActive(scroll_positions_index) {
-        let section_id = scroll_positions_lookup[scroll_positions_index][1];
-        let nav_id = "nav-" + section_id;
-        let nav_element = document.getElementById(nav_id);
-        nav_element.classList.add("active");
-    }
-
-    function setNavLinkInactive(scroll_positions_index) {
-        let section_id = scroll_positions_lookup[scroll_positions_index][1];
-        let nav_id = "nav-" + section_id;
-        let nav_element = document.getElementById(nav_id);
-        nav_element.classList.remove("active");
+    function setInactive(element) {
+        element.classList.remove("active");
     }
 
     function updateScrollState() {
-        function updateScrollStateWithDirection(scrollPosition, direction) {
-            setNavLinkInactive(current_scroll_index);
-            for (
-                let i = current_scroll_index;
-                i < scroll_positions_lookup.length && i >= 0;
-                i += direction
-            ) {
+        const scrollPosition = window.scrollY;
+        if (
+            scrollPosition >= below_element_position ||
+            scrollPosition <= above_element_position
+        ) {
+            let next_element_id = null;
+            above_element_position = 0;
+            below_element_position = Infinity;
+            for (let id in section_element_cached_positions) {
+                const position = section_element_cached_positions[id];
                 if (
-                    direction === 1 &&
-                    scrollPosition > scroll_positions_lookup[i][0]
+                    scrollPosition > position &&
+                    above_element_position < position
                 ) {
-                    current_scroll_index = i;
+                    above_element_position = position;
+                    next_element_id = id;
                 } else if (
-                    direction === -1 &&
-                    scrollPosition < scroll_positions_lookup[i][0]
+                    scrollPosition < position &&
+                    below_element_position > position
                 ) {
-                    current_scroll_index = i - 1;
+                    below_element_position = position;
                 }
             }
-            lower_bound = scroll_positions_lookup[current_scroll_index][0];
-            if (current_scroll_index + 1 >= scroll_positions_lookup.length) {
-                upper_bound = Infinity;
-            } else {
-                upper_bound =
-                    scroll_positions_lookup[current_scroll_index + 1][0];
+            console.log(above_element_position);
+            console.log(below_element_position);
+            if (next_element_id != current_element_id) {
+                if (current_element_id != null) {
+                    setInactive(section_elements[current_element_id]);
+                }
+                setActive(section_elements[next_element_id]);
+                current_element_id = next_element_id;
             }
-            setNavLinkActive(current_scroll_index);
-        }
-
-        const scrollPosition = window.scrollY;
-        if (scrollPosition > upper_bound) {
-            updateScrollStateWithDirection(scrollPosition, 1);
-        } else if (scrollPosition < lower_bound) {
-            updateScrollStateWithDirection(scrollPosition, -1);
         }
     }
 
     window.onscroll = () => {
         updateScrollState();
-        console.log(current_scroll_index);
     };
 
     function navigateToSection(section_id) {
@@ -208,6 +206,11 @@
     }
 
     .active {
+        background-color: #f2f1f0;
+        box-shadow: 0 -4px 0 0 #e1e3e4 inset;
+    }
+
+    .active:hover {
         background-color: #f2f1f0;
         box-shadow: 0 -4px 0 0 #cdcecf inset;
     }
