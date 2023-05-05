@@ -9,14 +9,14 @@
             link: "mailto:none@gmail.com",
         },
         {
-            name: "LinkedIn",
-            text: "/none",
-            link: "https://www.linkedin.com/in/none/",
-        },
-        {
             name: "GitHub",
             text: "/none",
             link: "https://www.github.com/none/",
+        },
+        {
+            name: "LinkedIn",
+            text: "/none",
+            link: "https://www.linkedin.com/in/none/",
         },
     ];
 </script>

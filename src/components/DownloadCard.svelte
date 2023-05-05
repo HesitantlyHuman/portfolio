@@ -26,7 +26,8 @@
 <style>
     .image {
         width: 100%;
-        height: 15em;
+        height: 20em;
+        background-color: #f2f1f0;
     }
 
     .info-bar {
