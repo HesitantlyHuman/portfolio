@@ -3,10 +3,17 @@ export const themes = {
         colors: {
             background: '#fff',
             section: "#F2F1F0",
+            label: {
+                background: "#E6E5E5",
+                border: "#CDCECF",
+                text: "#697276"
+            },
             card: {
                 background: "#fff",
                 accent: "#CDCECF",
-                highlight: "#9BA0A2"
+                highlight: "#9BA0A2",
+                dark: "#9BA0A2",
+                footer: "#9BA0A2"
             },
             contact: {
                 header: "#697276",
@@ -28,10 +35,17 @@ export const themes = {
         colors: {
             background: '#1D1E20',
             section: "#24282B",
+            label: {
+                background: "#697276",
+                border: "#9BA0A2",
+                text: "#CDCECF"
+            },
             card: {
                 background: "#313539",
                 accent: "#697276",
-                highlight: "#9BA0A2"
+                highlight: "#9BA0A2",
+                dark: "#313539",
+                footer: "#697276"
             },
             contact: {
                 header: "#313539",
