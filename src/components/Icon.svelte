@@ -113,6 +113,22 @@
             d="M3 16.5v2.3A2.3 2.3 0 0 0 5.3 21h13.4a2.3 2.3 0 0 0 2.3-2.3v-2.2M16.5 12 12 16.5m0 0L7.5 12m4.5 4.5V3"
         /></svg
     >
+{:else if name === "email"}
+    <svg
+        xmlns="http://www.w3.org/2000/svg"
+        viewBox="-4 -6 60 60"
+        fill={color}
+        height={size}
+    >
+        <circle cx="25.5" cy="24" r="29.5" mask="url(#a)" />
+        <mask id="a" fill="#000"
+            ><rect width="100%" height="100%" x="-4" y="-6" fill="#fff" /><path
+                d="m5.1 14.1 20.5 9.6 20.5-9.6A5 5 0 0 0 41 9.6H10.2a5 5 0 0 0-5 4.5Z"
+            /><path
+                d="M46 19.5 25.7 29 5.1 19.5v14.1c0 2.7 2.3 4.8 5.1 4.8H41c2.8 0 5-2.1 5-4.8V19.5Z"
+            />
+        </mask>
+    </svg>
 {:else}
     <p style="font-size: {size - 1}; color: {color}">{name}</p>
 {/if}
