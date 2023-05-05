@@ -36,7 +36,15 @@
             <footer>
                 <ul>
                     {#each links as link}
-                        <li><a href={link.url}>{link.name}</a></li>
+                        <li>
+                            <a href={link.url}>
+                                <Icon
+                                    name={link.name.toLowerCase()}
+                                    color="#697276"
+                                    size="2.5em"
+                                />
+                            </a>
+                        </li>
                     {/each}
                 </ul>
                 <p>Read more ></p>

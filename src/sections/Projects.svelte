@@ -35,5 +35,17 @@
                 },
             ]}
         />
+        <Project
+            name="Calculating optimal bets in CamelUp"
+            description="Ever played this obscure yet fun board game, and felt a burning desire to win at all costs? Well, you're in luck! I spent far too many hours of my life creating the stockcamel engin in high performance, multi-threaded rust."
+            category="Game theory"
+            techs={["Rust", "Python", "GitHub"]}
+            links={[
+                {
+                    name: "GitHub",
+                    url: "",
+                },
+            ]}
+        />
     </ContentList>
 </Section>
