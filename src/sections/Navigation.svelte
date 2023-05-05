@@ -1,6 +1,7 @@
 <script>
     import { afterUpdate, onMount } from "svelte";
     import Icon from "../components/Icon.svelte";
+    import Section from "../components/Section.svelte";
 
     export let nav_links = [
         {
@@ -51,6 +52,7 @@
     }
 </script>
 
+<div class="navbar-spacer" style="height:{height};margin:1.5em" />
 <header id="navbar">
     <nav>
         <a href="/" class="logo">

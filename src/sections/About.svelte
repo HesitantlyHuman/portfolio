@@ -1,12 +1,13 @@
 <script>
     import Icon from "../components/Icon.svelte";
     import Card from "../components/Card.svelte";
+    import Section from "../components/Section.svelte";
 
     export let name = "Tanner Sims";
     export let about_text = "About text";
 </script>
 
-<section id="about">
+<Section id="about">
     <Card>
         <div class="about-card">
             <div class="content">
@@ -26,14 +27,9 @@
             </div>
         </div>
     </Card>
-</section>
+</Section>
 
 <style>
-    section {
-        padding-top: 8em;
-        margin-bottom: 3em;
-    }
-
     .about-card {
         padding-inline: 7.5em;
         padding-block: 10em;
