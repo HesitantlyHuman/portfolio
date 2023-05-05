@@ -39,7 +39,7 @@
     <svg
         xmlns="http://www.w3.org/2000/svg"
         fill="none"
-        viewBox="10.5 8 79 79"
+        viewBox="11.5 8 79 79"
         height={size}
         ><path
             fill="#000"

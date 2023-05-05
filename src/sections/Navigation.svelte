@@ -26,93 +26,20 @@
     ];
 
     export let height = "5em";
-
-    let section_elements = {};
-    let section_element_cached_positions = {};
-    let current_element_id = null;
-    let above_element_position = 0;
-    let below_element_position = 0;
-
-    const cache_element_positions = (entries) => {
-        console.log("Caching element positions");
-        for (let i = 0; i < entries.length; i++) {
-            if (entries[i].id in section_element_cached_positions) {
-                section_element_cached_positions[entries[i].id] =
-                    entries[i].element.offsetTop;
-            }
-        }
-    };
-
-    const observer = new ResizeObserver(cache_element_positions);
-
-    onMount(() => {
-        for (const nav_link_info of nav_links) {
-            const id = nav_link_info.link;
-            const element = document.getElementById(id);
-            section_elements[id] = element;
-            section_element_cached_positions[id] = null;
-            observer.observe(element);
-        }
-    });
-
-    afterUpdate(() => {
-        for (const section_id in section_element_cached_positions) {
-            const element = section_elements[section_id];
-            section_element_cached_positions[section_id] = element.offsetTop;
-        }
-    });
-
-    function setActive(element) {
-        element.classList.add("active");
-    }
-
-    function setInactive(element) {
-        element.classList.remove("active");
-    }
-
-    function updateScrollState() {
-        const scrollPosition = window.scrollY;
-        if (
-            scrollPosition >= below_element_position ||
-            scrollPosition <= above_element_position
-        ) {
-            let next_element_id = null;
-            above_element_position = 0;
-            below_element_position = Infinity;
-            for (let id in section_element_cached_positions) {
-                const position = section_element_cached_positions[id];
-                if (
-                    scrollPosition > position &&
-                    above_element_position < position
-                ) {
-                    above_element_position = position;
-                    next_element_id = id;
-                } else if (
-                    scrollPosition < position &&
-                    below_element_position > position
-                ) {
-                    below_element_position = position;
-                }
-            }
-            console.log(above_element_position);
-            console.log(below_element_position);
-            if (next_element_id != current_element_id) {
-                if (current_element_id != null) {
-                    setInactive(section_elements[current_element_id]);
-                }
-                setActive(section_elements[next_element_id]);
-                current_element_id = next_element_id;
-            }
-        }
-    }
-
-    window.onscroll = () => {
-        updateScrollState();
-    };
+    export let theme_function;
 
     function navigateToSection(section_id) {
-        const targetElement = document.getElementById(section_id);
-        targetElement.scrollIntoView({ behavior: "smooth" });
+        const targetScrollLocation =
+            document.getElementById(section_id).offsetTop;
+        const navigationElementHeight =
+            document.getElementById("navbar").offsetHeight;
+        console.log(targetScrollLocation);
+        console.log(navigationElementHeight);
+        window.scrollTo({
+            top: targetScrollLocation - navigationElementHeight,
+            left: 0,
+            behavior: "smooth",
+        });
     }
 
     function handleNavigationClick(event) {
@@ -124,10 +51,10 @@
     }
 </script>
 
-<header>
+<header id="navbar">
     <nav>
-        <a href="/">
-            <Icon name="logo" style="line-height:{height}" />
+        <a href="/" class="logo">
+            <Icon name="logo" size="3em" />
         </a>
         <ul>
             {#each nav_links as link}
@@ -143,8 +70,8 @@
                     </a>
                 </li>
             {/each}
-            <button class="theme-toggle">
-                <Icon name="theme" size="1.5em" />
+            <button class="theme-toggle" on:click={theme_function}>
+                <Icon name="theme" size="1.8em" />
             </button>
         </ul>
     </nav>
@@ -155,10 +82,10 @@
         top: 0;
         left: 0;
         padding: 0;
-        box-shadow: 2px 4px 5px rgba(0, 0, 0, 0.05);
+        box-shadow: 2px 4px 5px rgba(0, 0, 0, 0.08);
         position: fixed;
         width: 100%;
-        background-color: #fff;
+        background-color: var(--theme-colors-hero-background);
         z-index: 1;
     }
 
@@ -193,7 +120,7 @@
 
     header nav ul li a {
         display: block;
-        color: #1d1e20;
+        color: var(--theme-colors-text-body);
         font-family: "IBM Plex Mono", monospace;
         font-size: 1em;
         font-weight: 300;
@@ -201,17 +128,22 @@
     }
 
     header nav ul li a:hover {
-        background-color: #f2f1f0;
-        box-shadow: 0 -4px 0 0 #cdcecf inset;
+        background-color: var(--theme-colors-hero-highlight);
+        box-shadow: 0 -4px 0 0 var(--theme-colors-hero-border) inset;
     }
 
     .active {
-        background-color: #f2f1f0;
-        box-shadow: 0 -4px 0 0 #e1e3e4 inset;
+        background-color: var(--theme-colors-hero-highlight);
+        box-shadow: 0 -4px 0 0 var(--theme-colors-hero-border) inset;
     }
 
-    .active:hover {
-        background-color: #f2f1f0;
-        box-shadow: 0 -4px 0 0 #cdcecf inset;
+    .logo {
+        background-color: var(--theme-colors-hero-highlight);
+        border-radius: 50%;
+        width: 3.5em;
+        height: 3.5em;
+        display: flex;
+        align-items: center;
+        justify-content: center;
     }
 </style>

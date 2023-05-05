@@ -59,6 +59,7 @@
         flex-direction: row;
         align-items: left;
         height: 22em;
+        background-color: var(--theme-colors-card-background);
     }
 
     article .image {
@@ -133,7 +134,6 @@
     article .info summary p {
         margin: 0;
         padding: 0;
-        color: #2a3135;
     }
 
     article .info footer {

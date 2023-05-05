@@ -6,6 +6,36 @@
 	import ContentColumn from "./components/ContentColumn.svelte";
 	import Contact from "./sections/Contact.svelte";
 	import Navigation from "./sections/Navigation.svelte";
+
+	import { themes } from "./themes.js";
+	import { onMount } from "svelte";
+
+	let theme = themes.dark; // TODO: load this from preferences or cookies
+
+	onMount(() => {
+		setTheme(theme, "theme");
+	});
+
+	function setTheme(theme_map, theme_name) {
+		for (const [property_name, value] of Object.entries(theme_map)) {
+			const property_path = `${theme_name}-${property_name}`;
+			if (value instanceof Object) {
+				setTheme(value, property_path);
+			} else {
+				const property_id = `--${property_path}`;
+				document.documentElement.style.setProperty(property_id, value);
+			}
+		}
+	}
+
+	function toggleTheme() {
+		if (theme === themes.light) {
+			theme = themes.dark;
+		} else {
+			theme = themes.light;
+		}
+		setTheme(theme, "theme");
+	}
 </script>
 
 <head>
@@ -19,7 +49,7 @@
 	/>
 </head>
 
-<Navigation />
+<Navigation theme_function={toggleTheme} />
 <ContentColumn>
 	<About
 		name="Tanner Sims"
@@ -28,12 +58,18 @@
 	<Projects />
 	<Experience />
 	<Downloads />
+	<Contact />
 </ContentColumn>
-<Contact />
 
 <style>
+	:global(body) {
+		margin: 0;
+		padding: 0;
+		background-color: var(--theme-colors-background);
+	}
+
 	:global(h1, h2, h3, h4, h5) {
-		color: #1d1e20;
+		color: var(--theme-colors-text-header);
 		font-family: "Work Sans", sans-serif;
 	}
 
@@ -62,6 +98,6 @@
 		font-weight: 300;
 		font-size: 1em;
 		font-family: "IBM Plex Mono", monospace;
-		color: #2a3135;
+		color: var(--theme-colors-text-body);
 	}
 </style>

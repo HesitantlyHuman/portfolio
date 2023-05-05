@@ -6,27 +6,45 @@
     export let about_text = "About text";
 </script>
 
-<Card>
-    <section id="about">
-        <h1>{name}</h1>
-        <p>{about_text}</p>
-        <ul>
-            <li>
-                <Icon name="github" size="2em" />
-            </li>
-            <li>
-                <Icon name="linkedin" size="2em" />
-            </li>
-        </ul>
-    </section>
-</Card>
+<section id="about">
+    <Card>
+        <div class="about-card">
+            <div class="content">
+                <h1>{name}</h1>
+                <p>{about_text}</p>
+                <ul>
+                    <li>
+                        <Icon name="github" size="2em" />
+                    </li>
+                    <li>
+                        <Icon name="linkedin" size="2em" />
+                    </li>
+                </ul>
+            </div>
+            <div class="headshot">
+                <Icon name="logo" size="15em" />
+            </div>
+        </div>
+    </Card>
+</section>
 
 <style>
     section {
-        padding: 4em;
+        padding-top: 8em;
+        margin-bottom: 3em;
     }
 
-    section ul {
+    .about-card {
+        padding-inline: 7.5em;
+        padding-block: 10em;
+        background-color: var(--theme-colors-hero-background);
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: space-between;
+    }
+
+    .about-card ul {
         display: flex;
         flex-direction: row;
         list-style: none;
@@ -34,11 +52,21 @@
         padding-block: 1em;
     }
 
-    section ul > li {
+    .about-card ul > li {
         margin-inline: 1.5em;
     }
 
-    section ul > li:first-child {
+    .about-card ul > li:first-child {
         margin-inline: 0;
+    }
+
+    .about-card .headshot {
+        background-color: var(--theme-colors-hero-highlight);
+        width: 19em;
+        height: 19em;
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
     }
 </style>

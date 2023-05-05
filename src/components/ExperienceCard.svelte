@@ -43,32 +43,32 @@
     article .card {
         border-radius: 12px;
         display: flex;
-        /* height: 26em; */
+        background-color: var(--theme-colors-card-background);
         width: 60em;
     }
 
     article:hover .card {
-        box-shadow: 0 0 0 2px #9ba0a2 inset;
+        box-shadow: 0 0 0 2px var(--theme-colors-card-highlight) inset;
     }
 
     article .card .style_box {
-        background-color: #cdcecf;
+        background-color: var(--theme-colors-card-accent);
         width: 10em;
     }
 
     article:hover .card .style_box {
-        background-color: #9ba0a2;
+        background-color: var(--theme-colors-card-highlight);
     }
 
     article .duration p {
-        color: #9ba0a2;
+        color: var(--theme-colors-card-accent);
         font-family: "Work Sans", sans-serif;
         font-weight: 400;
         text-align: center;
     }
 
     article:hover .duration p {
-        color: #697276;
+        color: var(--theme-colors-card-highlight);
     }
 
     article .card .info {
@@ -115,7 +115,7 @@
         margin-top: 1em;
     }
 
-    article .info footer {
-        margin-top: auto;
+    article .card .info footer a {
+        color: var(--theme-colors-text-body);
     }
 </style>

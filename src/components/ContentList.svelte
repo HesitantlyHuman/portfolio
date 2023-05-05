@@ -4,7 +4,7 @@
 
 <style>
     div {
-        background-color: #f2f1f0;
+        background-color: var(--theme-colors-section);
         padding: 2.5em;
         border-radius: 12px;
     }

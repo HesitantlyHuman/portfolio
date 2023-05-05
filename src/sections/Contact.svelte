@@ -27,7 +27,11 @@
         {#each contacts as contact}
             <a href={contact.link}>
                 <div class="icon">
-                    <Icon name={contact.name} size="2em" color="white" />
+                    <Icon
+                        name={contact.name}
+                        size="2em"
+                        color="var(--theme-colors-text-ondark)"
+                    />
                 </div>
                 <p>{contact.text}</p>
             </a>
@@ -37,14 +41,14 @@
 
 <style>
     footer {
-        background-color: #9ba0a2;
+        background-color: var(--theme-colors-contact-body);
         border-radius: 12px 12px 0 0;
         overflow: hidden;
     }
 
     footer h2 {
         color: #fff;
-        background-color: #697276;
+        background-color: var(--theme-colors-contact-header);
         padding-block: 0.5em;
         padding-inline: 1em;
         margin: 0;
@@ -71,6 +75,6 @@
     }
 
     footer .contact a p {
-        color: #fff;
+        color: var(--theme-colors-text-ondark);
     }
 </style>

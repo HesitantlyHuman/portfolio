@@ -10,13 +10,16 @@
 </section>
 
 <style>
+    section {
+        margin-bottom: 3em;
+    }
+
     p {
         color: #697276;
         font-family: "Work Sans", sans-serif;
         font-weight: 500;
         font-size: 1.8em;
         margin: 0;
-        padding-top: 2em;
         height: 0.6em;
     }
 
