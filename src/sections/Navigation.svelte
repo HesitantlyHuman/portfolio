@@ -30,17 +30,18 @@
     export let theme_function;
 
     function navigateToSection(section_id) {
-        const targetScrollLocation =
-            document.getElementById(section_id).offsetTop;
+        const scrollTarget =
+            document.getElementById(section_id);
+        const scrollTargetLocation = scrollTarget.offsetTop;
         const navigationElementHeight =
-            document.getElementById("navbar").offsetHeight;
-        console.log(targetScrollLocation);
-        console.log(navigationElementHeight);
+            document.getElementById("banner").offsetHeight;
         window.scrollTo({
-            top: targetScrollLocation - navigationElementHeight,
+            top: scrollTargetLocation - navigationElementHeight,
             left: 0,
             behavior: "smooth",
         });
+        const sectionHeading = scrollTarget.getElementsByClassName("section-title")[0];
+        sectionHeading.focus({ preventScroll: true });
     }
 
     function handleNavigationClick(event) {
@@ -52,13 +53,13 @@
     }
 </script>
 
-<div class="navbar-spacer" style="height:{height};margin:1.5em" />
-<header id="navbar">
-    <nav>
-        <a href="/" class="logo">
+<div class="banner-spacer" style="height:{height};margin:1.5em" />
+<nav id="banner">
+    <div class='nav-container'>
+        <a href="/" class="logo" aria-hidden="true">
             <Icon name="logo" size="3em" />
         </a>
-        <ul>
+        <ul role="menu">
             {#each nav_links as link}
                 <li>
                     <a
@@ -66,7 +67,6 @@
                         style="line-height:{height}"
                         on:click={handleNavigationClick}
                         class={false ? "active" : ""}
-                        id={"nav-" + link.link.toLowerCase()}
                     >
                         {link.name}
                     </a>
@@ -76,11 +76,11 @@
                 <Icon name="theme" size="1.8em" />
             </button>
         </ul>
-    </nav>
-</header>
+    </div>
+</nav>
 
 <style>
-    header {
+    nav {
         top: 0;
         left: 0;
         padding: 0;
@@ -91,7 +91,7 @@
         z-index: 1;
     }
 
-    header nav {
+    .nav-container {
         display: flex;
         flex-direction: row;
         align-items: center;
@@ -101,11 +101,11 @@
         margin: 0 auto;
     }
 
-    header nav a {
+    nav a {
         text-decoration: none;
     }
 
-    header nav ul {
+    nav ul {
         display: block;
         padding-block: 0.5em;
         padding-inline: 1em;
@@ -114,13 +114,13 @@
         height: 100%;
     }
 
-    header nav ul li {
+    nav ul li {
         vertical-align: top;
         display: inline-block;
         list-style: none;
     }
 
-    header nav ul li a {
+    nav ul li a {
         display: block;
         color: var(--theme-colors-text-body);
         font-family: "IBM Plex Mono", monospace;
@@ -129,7 +129,7 @@
         padding-inline: 1em;
     }
 
-    header nav ul li a:hover {
+    nav ul li a:hover {
         background-color: var(--theme-colors-hero-highlight);
         box-shadow: 0 -4px 0 0 var(--theme-colors-hero-border) inset;
     }

@@ -5,8 +5,8 @@
 
 <section {id}>
     {#if title}
-        <p>=================================</p>
-        <h2>{title}</h2>
+        <p aria-hidden="true">=================================</p>
+        <h2 class="section-title" tabindex="-1">{title}</h2>
     {/if}
     <slot />
 </section>

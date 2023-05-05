@@ -22,7 +22,7 @@
 </script>
 
 <footer id="contact">
-    <h2>Contact</h2>
+    <h2 class="section-title" tabindex="-1">Contact</h2>
     <div class="contact">
         {#each contacts as contact}
             <a href={contact.link}>

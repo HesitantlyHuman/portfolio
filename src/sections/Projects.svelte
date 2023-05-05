@@ -23,6 +23,7 @@
             description="Implementation of a novel method for deep archetypal analysis, with the aim of creating highly interpretable latent spaces."
             category="Machine learning"
             image="images/graph_theory.webp"
+            image_alt="colorful web of nodes and edges"
             techs={["Python", "PyTorch"]}
             links={[
                 {
