@@ -47,7 +47,7 @@
         width: 60em;
     }
 
-    article:hover .card {
+    article:is(:hover, :focus-within) .card {
         box-shadow: 0 0 0 2px var(--theme-colors-card-highlight) inset;
     }
 
@@ -56,7 +56,7 @@
         width: 10em;
     }
 
-    article:hover .card .style_box {
+    article:is(:hover, :focus-within) .card .style_box {
         background-color: var(--theme-colors-card-highlight);
     }
 
@@ -67,7 +67,7 @@
         text-align: center;
     }
 
-    article:hover .duration p {
+    article:is(:hover, :focus-within) .duration p {
         color: var(--theme-colors-card-highlight);
     }
 
@@ -84,7 +84,7 @@
         color: #9ba0a2;
     }
 
-    article:hover .card .info summary {
+    article:is(:hover, :focus-within) .card .info summary {
         height: 100%;
     }
 
@@ -94,7 +94,7 @@
         transition: 0.8s ease-in-out;
     }
 
-    article:hover .card .info footer {
+    article:is(:hover, :focus-within) .card .info footer {
         height: 100%;
     }
 
