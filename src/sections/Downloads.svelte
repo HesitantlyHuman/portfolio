@@ -31,14 +31,15 @@
         list-style: none;
         padding-inline: 0;
         padding-block: 1em;
+        justify-content: space-between;
     }
 
     ul li {
-        margin-inline: 2em;
-        width: 40em;
+        width: 100%;
+        padding-left: 3em;
     }
 
     ul li:first-child {
-        margin-inline: 0;
+        padding-left: 0;
     }
 </style>

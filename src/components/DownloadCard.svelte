@@ -27,7 +27,7 @@
     .image {
         width: 100%;
         height: 20em;
-        background-color: #f2f1f0;
+        background-color: var(--theme-colors-section);
     }
 
     .info-bar {
@@ -35,7 +35,7 @@
         bottom: 0;
         left: 0;
         width: 100%;
-        background-color: #9ba0a2;
+        background-color: var(--theme-colors-card-dark);
         display: flex;
         flex-direction: row;
         align-items: center;
