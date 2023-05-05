@@ -28,6 +28,10 @@
 </article>
 
 <style>
+    :root {
+        --local-colors-accent: var(--theme-colors-card-accent);
+    }
+
     article {
         display: flex;
         flex-direction: row;
@@ -47,28 +51,24 @@
         width: 60em;
     }
 
+    article:is(:hover, :focus-within) {
+        --local-colors-accent: var(--theme-colors-card-highlight);
+    }
+
     article:is(:hover, :focus-within) .card {
-        box-shadow: 0 0 0 2px var(--theme-colors-card-highlight) inset;
+        box-shadow: 0 0 0 2px var(--local-colors-accent) inset;
     }
 
     article .card .style_box {
-        background-color: var(--theme-colors-card-accent);
+        background-color: var(--local-colors-accent);
         width: 10em;
     }
 
-    article:is(:hover, :focus-within) .card .style_box {
-        background-color: var(--theme-colors-card-highlight);
-    }
-
     article .duration p {
-        color: var(--theme-colors-card-accent);
+        color: var(--local-colors-accent);
         font-family: "Work Sans", sans-serif;
         font-weight: 400;
         text-align: center;
-    }
-
-    article:is(:hover, :focus-within) .duration p {
-        color: var(--theme-colors-card-highlight);
     }
 
     article .card .info {
