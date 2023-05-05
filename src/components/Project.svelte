@@ -20,12 +20,12 @@
             <h3>{name}</h3>
             <aside>
                 <h4>{category.toUpperCase()}</h4>
-                <ul>
+                <ul class="tech-icons">
                     {#each techs as tech}
                         <li>
                             <Icon
                                 name={tech.toLowerCase()}
-                                color="#697276"
+                                color="var(--theme-colors-label-text)"
                                 size="1.8em"
                             />
                         </li>
@@ -34,14 +34,14 @@
             </aside>
             <summary><p>{description}</p></summary>
             <footer>
-                <ul>
+                <ul class="link-icons">
                     {#each links as link}
                         <li>
                             <a href={link.url}>
                                 <Icon
                                     name={link.name.toLowerCase()}
-                                    color="#697276"
-                                    size="2.5em"
+                                    color="var(--theme-colors-card-footer)"
+                                    size="2em"
                                 />
                             </a>
                         </li>
@@ -65,7 +65,10 @@
     article .image {
         width: 22em;
         overflow: hidden;
-        background-color: #9ba0a2;
+        background-color: var(--theme-colors-card-accent);
+        display: flex;
+        align-items: center;
+        justify-content: center;
     }
 
     article .image img {
@@ -75,7 +78,7 @@
 
     article .info {
         padding-block: 2em;
-        padding-inline: 4em;
+        padding-inline: 3em;
         display: flex;
         flex-direction: column;
         width: 100%;
@@ -88,8 +91,8 @@
     article .info aside {
         order: 1;
         display: flex;
-        border: 2px solid #cdcecf;
-        background-color: #e6e5e5;
+        border: 2px solid var(--theme-colors-label-border);
+        background-color: var(--theme-colors-label-background);
         border-radius: 10px;
         width: fit-content;
         padding: 0;
@@ -101,12 +104,12 @@
         margin: 0;
         padding-block: 0.5em;
         padding-inline: 2em;
-        border-right: 2px solid #cdcecf;
+        border-right: 2px solid var(--theme-colors-label-border);
         font-size: 1em;
-        color: #697276;
+        color: var(--theme-colors-label-text);
     }
 
-    article .info aside ul {
+    .tech-icons {
         list-style-type: none;
         display: flex;
         flex-direction: row;
@@ -115,14 +118,29 @@
         margin: 0;
     }
 
-    article .info aside ul li {
+    .tech-icons li {
         display: flex;
         align-items: center;
         margin-left: 1em;
-        color: #2a3135;
     }
 
-    article .info aside ul li:first-child {
+    .tech-icons li:first-child {
+        margin-left: 0;
+    }
+
+    .link-icons {
+        list-style-type: none;
+        display: flex;
+        flex-direction: row;
+        padding: 0;
+        margin: 0;
+    }
+
+    .link-icons li {
+        margin-left: 1.5em;
+    }
+
+    .link-icons li:first-child {
         margin-left: 0;
     }
 
@@ -139,17 +157,8 @@
     article .info footer {
         order: 4;
         display: flex;
-        width: 100%;
         flex-direction: row;
         bottom: 0;
-    }
-
-    article .info footer ul {
-        list-style-type: none;
-        display: flex;
-        flex-direction: row;
-        margin: 0;
-        padding: 0;
     }
 
     article .info footer p {

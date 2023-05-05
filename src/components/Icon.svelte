@@ -2,7 +2,7 @@
     export let name = null;
     export let color = null;
     export let size = "2em";
-    export let stroke_width = "0.125em";
+    export let stroke_width;
 
     name = name.toLowerCase();
 </script>
@@ -73,7 +73,7 @@
 {:else if name === "github"}
     <svg
         xmlns="http://www.w3.org/2000/svg"
-        viewBox="0 0 24 24"
+        viewBox="0 0 24.2 23.4"
         height={size}
         fill={color}
         alt="github"
@@ -109,7 +109,7 @@
         xmlns="http://www.w3.org/2000/svg"
         fill="none"
         stroke={color}
-        stroke-width={stroke_width}
+        stroke-width={stroke_width ? stroke_width : "0.125em"}
         height={size}
         class="w-6 h-6"
         viewBox="0 0 24 24"
@@ -137,6 +137,37 @@
             />
         </mask>
     </svg>
+{:else if name === "link"}
+    <svg
+        xmlns="http://www.w3.org/2000/svg"
+        fill="none"
+        stroke={color}
+        stroke-width={stroke_width ? stroke_width : "0.125em"}
+        height={size}
+        class="h-6 w-6"
+        viewBox="1 2 20.8 20.8"
+        ><path
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            d="M13.8 10.2a4 4 0 0 0-5.6 0l-4 4a4 4 0 1 0 5.6 5.6l1.1-1m-.7-5a4 4 0 0 0 5.6 0l4-4a4 4 0 0 0-5.6-5.6l-1.1 1"
+        /></svg
+    >
+{:else if name === "paper"}
+    <svg
+        xmlns="http://www.w3.org/2000/svg"
+        fill="none"
+        stroke={color}
+        stroke-width={stroke_width ? stroke_width : "0.095em"}
+        height={size}
+        class="h-6 w-6"
+        viewBox="2.2 3.2 19.7 17.4"
+        alt="paper"
+        ><path
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            d="M19 20H5a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2v1m2 13a2 2 0 0 1-2-2V7m2 13a2 2 0 0 0 2-2V9a2 2 0 0 0-2-2h-2m-4-3H9M7 16h6M7 8h6v4H7V8z"
+        /></svg
+    >
 {:else}
     <p style="font-size: {size - 1}; color: {color}">{name}</p>
 {/if}
