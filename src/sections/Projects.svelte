@@ -172,6 +172,7 @@
         height: 2em;
         color: var(--theme-colors-text-body);
         transition: all var(--style-transition-theme);
+        padding-inline: 1em;
     }
 
     .category-filters {

@@ -33,7 +33,7 @@
         const scrollTarget = document.getElementById(section_id);
         const scrollTargetLocation = scrollTarget.offsetTop;
         const navigationElementHeight =
-            document.getElementById("banner").offsetHeight;
+            document.getElementById("banner-spacer").offsetHeight;
         window.scrollTo({
             top: scrollTargetLocation - navigationElementHeight,
             left: 0,
@@ -53,7 +53,7 @@
     }
 </script>
 
-<div class="banner-spacer" style="height:{height};margin:1.5em" />
+<div id="banner-spacer" style="height:{height};" />
 <nav id="banner">
     <div class="nav-container">
         <a href="/" class="logo" aria-hidden="true">

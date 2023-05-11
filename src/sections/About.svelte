@@ -8,10 +8,11 @@
 </script>
 
 <Section id="about">
+    <div id="about-spacer" style="height: 3em;" />
     <Card>
         <div class="about-card">
             <div class="content">
-                <h1 class="section-title" tabindex="-1">{name}</h1>
+                <h1>{name}</h1>
                 <p>{about_text}</p>
                 <ul>
                     <li>
