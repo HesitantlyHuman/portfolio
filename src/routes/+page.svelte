@@ -1,4 +1,6 @@
 <script>
+    import "../styles/fonts.css";
+
     import Projects from "../sections/Projects.svelte";
     import About from "../sections/About.svelte";
     import Experience from "../sections/Experience.svelte";
@@ -39,8 +41,6 @@
         setCssVariables(theme, "theme");
     }
 </script>
-
-<link href="/styles/fonts.css" rel="stylesheet" />
 
 <Navigation theme_function={toggleTheme} theme={theme.name} height="5em" />
 <ContentColumn>
