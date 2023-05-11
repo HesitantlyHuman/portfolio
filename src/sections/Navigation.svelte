@@ -1,6 +1,4 @@
 <script>
-    import { base } from "$app/paths";
-
     import Icon from "../components/Icon.svelte";
     import ThemeToggle from "../components/ThemeToggle.svelte";
 
@@ -50,7 +48,6 @@
         event.preventDefault();
         const target = event.target;
         let href = target.getAttribute("href");
-        href = href.replace(base, "");
         navigateToSection(href);
     }
 </script>
@@ -67,7 +64,7 @@
                     <li>
                         <a
                             rel="external"
-                            href={base + link.link}
+                            href={link.link}
                             style="line-height:{height}"
                             on:click={handleNavigationClick}
                             class={false ? "active" : ""}
