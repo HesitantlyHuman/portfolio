@@ -1,6 +1,9 @@
 <script>
     import Section from "../components/Section.svelte";
     import DownloadCard from "../components/DownloadCard.svelte";
+
+    import resume_preview_transformed from "/src/images/resume.png?format=webp&w=340&aspect=1:1";
+    import cv_preview_transformed from "/src/images/cv.png?format=webp&w=340&aspect=1:1";
 </script>
 
 <Section title="Downloads" id="downloads">
@@ -10,7 +13,7 @@
                 name="Resume"
                 file_size="123kb"
                 download_url="downloads/resume.pdf"
-                preview_image="images/resume.png"
+                preview_image={resume_preview_transformed}
             />
         </li>
         <li>
@@ -18,7 +21,7 @@
                 name="CV"
                 file_size="123kb"
                 download_url="downloads/cv.pdf"
-                preview_image="images/cv.png"
+                preview_image={cv_preview_transformed}
             />
         </li>
     </ul>

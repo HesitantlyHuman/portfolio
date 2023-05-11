@@ -55,12 +55,16 @@
         return visible;
     }
 
+    import lyrics_transformed from "/src/images/lyrics.jpg?format=webp&w=340&aspect=1:1";
+    import nebula_transformed from "/src/images/nebula.webp?format=webp&w=340&aspect=1:1";
+    import dice_transformed from "/src/images/dice.jpg?format=webp&w=340&aspect=1:1";
+
     let projects = [
         {
             name: "Open Lyrics Dataset",
             description: "A dataset of song lyrics",
             category: "Data collection",
-            image: "images/lyrics.jpg",
+            image: lyrics_transformed,
             image_alt: "lyrics on sheet music",
             techs: ["Python"],
             links: [
@@ -75,7 +79,7 @@
             description:
                 "Implementation of a novel method for deep archetypal analysis, with the aim of creating highly interpretable latent spaces.",
             category: "Machine learning",
-            image: "images/nebula.webp",
+            image: nebula_transformed,
             image_alt: "a nebula",
             techs: ["Python", "PyTorch"],
             links: [
@@ -94,7 +98,7 @@
             description:
                 "Ever played this obscure yet fun board game, and felt a burning desire to win at all costs? Well, you're in luck! I spent far too many hours of my life creating the stockcamel engine in high performance, multi-threaded rust.",
             category: "Game theory",
-            image: "images/dice.jpg",
+            image: dice_transformed,
             image_alt: "Black and white dice",
             techs: ["Rust"],
             links: [

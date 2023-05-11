@@ -40,16 +40,14 @@
     }
 </script>
 
-<head>
-    <link
-        href="https://fonts.googleapis.com/css?family=Work+Sans:400,600,700&display=swap"
-        rel="stylesheet"
-    />
-    <link
-        href="https://fonts.googleapis.com/css?family=IBM+Plex+Mono:300,700&display=swap"
-        rel="stylesheet"
-    />
-</head>
+<link
+    href="https://fonts.googleapis.com/css?family=Work+Sans:400,600,700&display=swap"
+    rel="stylesheet"
+/>
+<link
+    href="https://fonts.googleapis.com/css?family=IBM+Plex+Mono:300,700&display=swap"
+    rel="stylesheet"
+/>
 
 <Navigation theme_function={toggleTheme} theme={theme.name} height="5em" />
 <ContentColumn>
