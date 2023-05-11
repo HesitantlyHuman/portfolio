@@ -40,13 +40,30 @@
     }
 </script>
 
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+
 <link
+    rel="preload"
+    as="style"
     href="https://fonts.googleapis.com/css?family=Work+Sans:400,600,700&display=swap"
-    rel="stylesheet"
 />
 <link
+    rel="preload"
+    as="style"
     href="https://fonts.googleapis.com/css?family=IBM+Plex+Mono:300,700&display=swap"
+/>
+
+<link
     rel="stylesheet"
+    href="https://fonts.googleapis.com/css?family=Work+Sans:400,600,700&display=swap"
+    media="print"
+    onload="this.media='all'"
+/>
+<link
+    rel="stylesheet"
+    href="https://fonts.googleapis.com/css?family=IBM+Plex+Mono:300,700&display=swap"
+    media="print"
+    onload="this.media='all'"
 />
 
 <Navigation theme_function={toggleTheme} theme={theme.name} height="5em" />
