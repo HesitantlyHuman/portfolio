@@ -10,7 +10,7 @@
                 name="Resume"
                 file_size="123kb"
                 download_url="downloads/resume.pdf"
-                preview_image="images/resume.webp"
+                preview_image="images/resume.png"
             />
         </li>
         <li>
@@ -18,7 +18,7 @@
                 name="CV"
                 file_size="123kb"
                 download_url="downloads/cv.pdf"
-                preview_image="images/cv.webp"
+                preview_image="images/cv.png"
             />
         </li>
     </ul>

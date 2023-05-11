@@ -48,7 +48,6 @@
         event.preventDefault();
         const target = event.target;
         const href = target.getAttribute("href");
-        console.log(href);
         navigateToSection(href);
     }
 </script>
@@ -64,6 +63,7 @@
                 {#each nav_links as link}
                     <li>
                         <a
+                            rel="external"
                             href={link.link}
                             style="line-height:{height}"
                             on:click={handleNavigationClick}
