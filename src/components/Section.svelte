@@ -1,5 +1,5 @@
 <script>
-    export let title;
+    export let title = null;
     export let id;
 </script>
 
@@ -17,7 +17,7 @@
     }
 
     p {
-        color: #697276;
+        color: var(--theme-colors-text-body);
         font-family: "Work Sans", sans-serif;
         font-weight: 500;
         font-size: 1.8em;

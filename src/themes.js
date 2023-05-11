@@ -1,7 +1,18 @@
 export const themes = {
     light: {
+        name: "light",
+        animation: {
+            theme: {
+                transition: "0.1s ease-in-out",
+            }
+        },
+        style: {
+            border: {
+                width: "1px",
+            }
+        },
         colors: {
-            background: '#fff',
+            background: '#FEFEFE',
             section: "#F2F1F0",
             label: {
                 background: "#E6E5E5",
@@ -32,6 +43,17 @@ export const themes = {
         }
     },
     dark: {
+        name: "dark",
+        animation: {
+            theme: {
+                transition: "all 0.3s ease-in-out",
+            }
+        },
+        style: {
+            border: {
+                width: "1px",
+            }
+        },
         colors: {
             background: '#1D1E20',
             section: "#24282B",

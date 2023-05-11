@@ -49,7 +49,7 @@
 	/>
 </head>
 
-<Navigation theme_function={toggleTheme} />
+<Navigation theme_function={toggleTheme} theme={theme.name} />
 <ContentColumn>
 	<About
 		name="Tanner Sims"
@@ -66,6 +66,7 @@
 		margin: 0;
 		padding: 0;
 		background-color: var(--theme-colors-background);
+		transition: background-color var(--theme-animation-theme-transition);
 	}
 
 	:global(h1, h2, h3, h4, h5) {

@@ -1,8 +1,8 @@
 <script>
-    export let name = null;
-    export let color = null;
+    export let name = "link";
+    export let color = "white";
     export let size = "2em";
-    export let stroke_width;
+    export let stroke_width = null;
 
     name = name.toLowerCase();
 </script>
@@ -167,6 +167,28 @@
             stroke-linejoin="round"
             d="M19 20H5a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2v1m2 13a2 2 0 0 1-2-2V7m2 13a2 2 0 0 0 2-2V9a2 2 0 0 0-2-2h-2m-4-3H9M7 16h6M7 8h6v4H7V8z"
         /></svg
+    >
+{:else if name === "light"}
+    <svg
+        xmlns="http://www.w3.org/2000/svg"
+        class="h-5 w-5"
+        viewBox="2 2 16 16"
+        fill={color}
+        height={size}
+        ><path
+            fill-rule="evenodd"
+            d="M10 2a1 1 0 0 1 1 1v1a1 1 0 1 1-2 0V3a1 1 0 0 1 1-1zm4 8a4 4 0 1 1-8 0 4 4 0 0 1 8 0zm-.46 4.95.7.7a1 1 0 0 0 1.42-1.4l-.71-.71a1 1 0 0 0-1.41 1.41zm2.12-10.6a1 1 0 0 1 0 1.4l-.71.71a1 1 0 1 1-1.41-1.41l.7-.7a1 1 0 0 1 1.42 0zM17 11a1 1 0 1 0 0-2h-1a1 1 0 1 0 0 2h1zm-7 4a1 1 0 0 1 1 1v1a1 1 0 1 1-2 0v-1a1 1 0 0 1 1-1zM5.05 6.46a1 1 0 1 0 1.42-1.41l-.71-.7a1 1 0 0 0-1.42 1.4l.71.71zm1.41 8.49-.7.7a1 1 0 0 1-1.42-1.4l.71-.71a1 1 0 0 1 1.41 1.41zM4 11a1 1 0 1 0 0-2H3a1 1 0 0 0 0 2h1z"
+            clip-rule="evenodd"
+        /></svg
+    >
+{:else if name === "dark"}
+    <svg
+        xmlns="http://www.w3.org/2000/svg"
+        class="h-5 w-5"
+        viewBox="0 0 20 20"
+        fill={color}
+        height={size}
+        ><path d="M17.3 13.3A8 8 0 0 1 6.7 2.7a8 8 0 1 0 10.6 10.6z" /></svg
     >
 {:else}
     <p style="font-size: {size - 1}; color: {color}">{name}</p>

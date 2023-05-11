@@ -1,5 +1,5 @@
 <script>
-    import HoverCard from "../components/HoverCard.svelte";
+    import Card from "../components/Card.svelte";
     import Icon from "../components/Icon.svelte";
 
     export let name = "Download Name";
@@ -9,7 +9,7 @@
 </script>
 
 <a href={download_url}>
-    <HoverCard>
+    <Card hover={true}>
         <div class="image">
             <img src={preview_image} alt="Resume" />
         </div>
@@ -20,7 +20,7 @@
             </div>
             <Icon name="download" size="2em" color="white" />
         </div>
-    </HoverCard>
+    </Card>
 </a>
 
 <style>

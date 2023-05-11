@@ -15,7 +15,11 @@
                 <p>{about_text}</p>
                 <ul>
                     <li>
-                        <Icon name="github" size="2em" />
+                        <Icon
+                            name="github"
+                            size="2em"
+                            color="var(--theme-colors-text-header)"
+                        />
                     </li>
                     <li>
                         <Icon name="linkedin" size="2em" />
@@ -50,6 +54,8 @@
 
     .about-card ul > li {
         margin-inline: 1.5em;
+        display: flex;
+        align-items: center;
     }
 
     .about-card ul > li:first-child {

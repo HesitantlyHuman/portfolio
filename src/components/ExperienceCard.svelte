@@ -56,7 +56,8 @@
     }
 
     article:is(:hover, :focus-within) .card {
-        box-shadow: 0 0 0 2px var(--local-colors-accent) inset;
+        box-shadow: 0 0 0 var(--theme-style-border-width)
+            var(--local-colors-accent) inset;
     }
 
     article .card .style_box {

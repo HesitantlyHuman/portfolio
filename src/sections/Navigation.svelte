@@ -1,7 +1,6 @@
 <script>
-    import { afterUpdate, onMount } from "svelte";
     import Icon from "../components/Icon.svelte";
-    import Section from "../components/Section.svelte";
+    import ThemeToggle from "../components/ThemeToggle.svelte";
 
     export let nav_links = [
         {
@@ -28,10 +27,10 @@
 
     export let height = "5em";
     export let theme_function;
+    export let theme = "dark";
 
     function navigateToSection(section_id) {
-        const scrollTarget =
-            document.getElementById(section_id);
+        const scrollTarget = document.getElementById(section_id);
         const scrollTargetLocation = scrollTarget.offsetTop;
         const navigationElementHeight =
             document.getElementById("banner").offsetHeight;
@@ -40,7 +39,8 @@
             left: 0,
             behavior: "smooth",
         });
-        const sectionHeading = scrollTarget.getElementsByClassName("section-title")[0];
+        const sectionHeading =
+            scrollTarget.getElementsByClassName("section-title")[0];
         sectionHeading.focus({ preventScroll: true });
     }
 
@@ -55,27 +55,27 @@
 
 <div class="banner-spacer" style="height:{height};margin:1.5em" />
 <nav id="banner">
-    <div class='nav-container'>
+    <div class="nav-container">
         <a href="/" class="logo" aria-hidden="true">
             <Icon name="logo" size="3em" />
         </a>
-        <ul role="menu">
-            {#each nav_links as link}
-                <li>
-                    <a
-                        href={link.link}
-                        style="line-height:{height}"
-                        on:click={handleNavigationClick}
-                        class={false ? "active" : ""}
-                    >
-                        {link.name}
-                    </a>
-                </li>
-            {/each}
-            <button class="theme-toggle" on:click={theme_function}>
-                <Icon name="theme" size="1.8em" />
-            </button>
-        </ul>
+        <div class="nav-left">
+            <ul role="menu">
+                {#each nav_links as link}
+                    <li>
+                        <a
+                            href={link.link}
+                            style="line-height:{height}"
+                            on:click={handleNavigationClick}
+                            class={false ? "active" : ""}
+                        >
+                            {link.name}
+                        </a>
+                    </li>
+                {/each}
+            </ul>
+            <ThemeToggle {theme_function} {theme} />
+        </div>
     </div>
 </nav>
 
@@ -99,6 +99,12 @@
         padding-inline: 1em;
         max-width: 80em;
         margin: 0 auto;
+    }
+
+    .nav-left {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
     }
 
     nav a {

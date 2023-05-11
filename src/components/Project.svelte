@@ -1,5 +1,5 @@
 <script>
-    import HoverCard from "./HoverCard.svelte";
+    import Card from "./Card.svelte";
     import Icon from "./Icon.svelte";
 
     export let name = "Project Name";
@@ -11,7 +11,7 @@
     export let links = [];
 </script>
 
-<HoverCard>
+<Card hover={true}>
     <article>
         <div class="image">
             <img src={image} alt={image_alt} />
@@ -51,7 +51,7 @@
             </footer>
         </div>
     </article>
-</HoverCard>
+</Card>
 
 <style>
     article {
@@ -91,7 +91,8 @@
     article .info aside {
         order: 1;
         display: flex;
-        border: 2px solid var(--theme-colors-label-border);
+        border: var(--theme-style-border-width) solid
+            var(--theme-colors-label-border);
         background-color: var(--theme-colors-label-background);
         border-radius: 10px;
         width: fit-content;
@@ -104,7 +105,8 @@
         margin: 0;
         padding-block: 0.5em;
         padding-inline: 2em;
-        border-right: 2px solid var(--theme-colors-label-border);
+        border-right: var(--theme-style-border-width) solid
+            var(--theme-colors-label-border);
         font-size: 1em;
         color: var(--theme-colors-label-text);
     }
