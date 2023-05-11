@@ -8,19 +8,21 @@
 	import Navigation from "./sections/Navigation.svelte";
 
 	import { themes } from "./themes.js";
+	import { style } from "./style.js";
 	import { onMount } from "svelte";
 
 	let theme = themes.dark; // TODO: load this from preferences or cookies
 
 	onMount(() => {
-		setTheme(theme, "theme");
+		setCssVariables(theme, "theme");
+		setCssVariables(style, "style");
 	});
 
-	function setTheme(theme_map, theme_name) {
-		for (const [property_name, value] of Object.entries(theme_map)) {
-			const property_path = `${theme_name}-${property_name}`;
+	function setCssVariables(variable_map, variable_name) {
+		for (const [property_name, value] of Object.entries(variable_map)) {
+			const property_path = `${variable_name}-${property_name}`;
 			if (value instanceof Object) {
-				setTheme(value, property_path);
+				setCssVariables(value, property_path);
 			} else {
 				const property_id = `--${property_path}`;
 				document.documentElement.style.setProperty(property_id, value);
@@ -34,7 +36,7 @@
 		} else {
 			theme = themes.light;
 		}
-		setTheme(theme, "theme");
+		setCssVariables(theme, "theme");
 	}
 </script>
 
@@ -66,11 +68,12 @@
 		margin: 0;
 		padding: 0;
 		background-color: var(--theme-colors-background);
-		transition: background-color var(--theme-animation-theme-transition);
+		transition: background-color var(--style-transition-theme);
 	}
 
 	:global(h1, h2, h3, h4, h5) {
 		color: var(--theme-colors-text-header);
+		transition: color var(--style-transition-theme);
 		font-family: "Work Sans", sans-serif;
 	}
 
@@ -100,5 +103,6 @@
 		font-size: 1em;
 		font-family: "IBM Plex Mono", monospace;
 		color: var(--theme-colors-text-body);
+		transition: color var(--style-transition-theme);
 	}
 </style>

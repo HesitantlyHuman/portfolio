@@ -7,6 +7,7 @@
         background-color: var(--theme-colors-section);
         padding: 2.5em;
         border-radius: 12px;
+        transition: background-color var(--style-transition-theme);
     }
 
     div :global(> *) {

@@ -41,7 +41,10 @@
 <!-- <Card> -->
 <div class="dropdown">
     <button class="dropdown-header" on:click={toggleDropdown}>
-        <h4>{filter_name + " ⌄"}</h4>
+        <h4>{filter_name}</h4>
+        <div class="dropdown-arrow">
+            <Icon name="chevron-down" size="1em" />
+        </div>
     </button>
     {#if dropdown_open}
         <ul>
@@ -61,11 +64,9 @@
                         />
                         <h4>{filter_item.toUpperCase()}</h4>
                         {#if use_icons && filter_item != "all"}
-                            <Icon
-                                name={filter_item}
-                                size="1.2em"
-                                color="var(--theme-colors-label-text)"
-                            />
+                            <div class="filter-icon">
+                                <Icon name={filter_item} size="1.2em" />
+                            </div>
                         {/if}
                     </li>
                 </button>
@@ -86,14 +87,32 @@
 
     .dropdown-header {
         margin-left: auto;
+        display: flex;
+        flex-direction: row;
+        align-items: center;
     }
 
     .dropdown-header h4 {
         color: var(--theme-colors-text-body);
+        transition: color var(--style-transition-theme);
+        opacity: 0.8;
+    }
+
+    .dropdown-arrow {
+        margin-left: 0.5em;
+        display: flex;
+        align-items: center;
+        color: var(--theme-colors-text-body);
+        transition: color var(--style-transition-theme);
         opacity: 0.8;
     }
 
     .dropdown-header:hover h4 {
+        color: var(--theme-colors-text-header);
+        opacity: 1;
+    }
+
+    .dropdown-header:hover .dropdown-arrow {
         color: var(--theme-colors-text-header);
         opacity: 1;
     }
@@ -112,6 +131,7 @@
         width: 100%;
         position: absolute;
         background-color: var(--theme-colors-card-background);
+        transition: background-color var(--style-transition-theme);
         display: flex;
         flex-direction: column;
         list-style: none;
@@ -123,13 +143,6 @@
         box-shadow: 2px 6px 8px rgba(0, 0, 0, 0.15);
     }
 
-    /* button {
-        background-color: var(--theme-colors-label-background);
-        border: 2px solid var(--theme-colors-label-border);
-        border-radius: 5em;
-        padding: 0.5em;
-    } */
-
     button li {
         display: flex;
         flex-direction: row;
@@ -140,28 +153,37 @@
 
     .filter-off {
         background-color: var(--theme-colors-card-background);
+        transition: background-color var(--style-transition-theme);
     }
 
     h4 {
         margin: 0;
         font-size: 1em;
         color: var(--theme-colors-label-text);
+        transition: color var(--style-transition-theme);
     }
 
     .filter-checkbox {
         width: 1.3em;
         height: 1.3em;
         border-radius: 25%;
-        border: var(--theme-style-border-width) solid
-            var(--theme-colors-label-border);
+        border: var(--style-border-width) solid var(--theme-colors-label-border);
+        transition: border var(--style-transition-theme);
         margin-inline: 1em;
     }
 
     .checkbox-on {
         background-color: var(--theme-colors-label-border);
+        transition: background-color var(--style-transition-theme);
     }
 
     .checkbox-off {
         background-color: var(--theme-colors-card-background);
+        transition: background-color var(--style-transition-theme);
+    }
+
+    .filter-icon {
+        color: var(--theme-colors-label-text);
+        transition: color var(--style-transition-theme);
     }
 </style>

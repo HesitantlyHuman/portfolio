@@ -12,11 +12,11 @@
     }
 </script>
 
-<div class="toggle-container">
+<div class="toggle-container" aria-hidden="true">
     <div class="toggle-button" on:click={toggle_theme}>
         <div class="toggle-notch" />
         <div class="toggle-nob" style="left:{toggle_left ? '0.5em' : '2em'}">
-            <Icon name={theme} color="white" size="1.25em" />
+            <Icon name={theme} size="1.15em" />
         </div>
     </div>
 </div>
@@ -48,6 +48,7 @@
         height: 0.7em;
         border-radius: 100px;
         background-color: var(--theme-colors-card-highlight);
+        transition: background-color var(--style-transition-theme);
         position: relative;
         display: flex;
         align-items: center;
@@ -59,6 +60,9 @@
         height: 1.5em;
         border-radius: 50%;
         background-color: var(--theme-colors-card-accent);
+        transition: background-color var(--style-transition-theme);
+        color: var(--theme-colors-text-ondark);
+        transition: color var(--style-transition-theme);
         position: absolute;
         transition: left 0.2s ease-in-out;
         display: flex;

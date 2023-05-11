@@ -18,6 +18,7 @@
 
     p {
         color: var(--theme-colors-text-body);
+        transition: color var(--style-transition-theme);
         font-family: "Work Sans", sans-serif;
         font-weight: 500;
         font-size: 1.8em;

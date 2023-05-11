@@ -15,14 +15,10 @@
                 <p>{about_text}</p>
                 <ul>
                     <li>
-                        <Icon
-                            name="github"
-                            size="2em"
-                            color="var(--theme-colors-text-header)"
-                        />
+                        <Icon name="github" size="2em" />
                     </li>
                     <li>
-                        <Icon name="linkedin" size="2em" />
+                        <Icon name="linkedin" size="2em" use_color={false} />
                     </li>
                 </ul>
             </div>
@@ -38,6 +34,7 @@
         padding-inline: 7.5em;
         padding-block: 10em;
         background-color: var(--theme-colors-hero-background);
+        transition: background-color var(--style-transition-theme);
         display: flex;
         flex-direction: row;
         align-items: center;
@@ -56,6 +53,9 @@
         margin-inline: 1.5em;
         display: flex;
         align-items: center;
+        justify-content: center;
+        color: var(--theme-colors-text-body);
+        transition: color var(--style-transition-theme);
     }
 
     .about-card ul > li:first-child {
@@ -64,6 +64,7 @@
 
     .about-card .headshot {
         background-color: var(--theme-colors-hero-highlight);
+        transition: background-color var(--style-transition-theme);
         width: 19em;
         height: 19em;
         border-radius: 50%;

@@ -48,6 +48,7 @@
         border-radius: 12px;
         display: flex;
         background-color: var(--theme-colors-card-background);
+        transition: background-color var(--style-transition-theme);
         width: 60em;
     }
 
@@ -56,17 +57,19 @@
     }
 
     article:is(:hover, :focus-within) .card {
-        box-shadow: 0 0 0 var(--theme-style-border-width)
-            var(--local-colors-accent) inset;
+        box-shadow: 0 0 0 var(--style-border-width) var(--local-colors-accent)
+            inset;
     }
 
     article .card .style_box {
         background-color: var(--local-colors-accent);
+        transition: background-color var(--style-transition-theme);
         width: 10em;
     }
 
     article .duration p {
         color: var(--local-colors-accent);
+        transition: color var(--style-transition-theme);
         font-family: "Work Sans", sans-serif;
         font-weight: 400;
         text-align: center;
@@ -118,5 +121,6 @@
 
     article .card .info footer a {
         color: var(--theme-colors-text-body);
+        transition: color var(--style-transition-theme);
     }
 </style>

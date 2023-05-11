@@ -18,7 +18,9 @@
                 <h3>{name}</h3>
                 <p>{file_size}</p>
             </div>
-            <Icon name="download" size="2em" color="white" />
+            <div class="download-icon">
+                <Icon name="download" size="2em" />
+            </div>
         </div>
     </Card>
 </a>
@@ -28,6 +30,7 @@
         width: 100%;
         height: 20em;
         background-color: var(--theme-colors-section);
+        transition: background-color var(--style-transition-theme);
     }
 
     .info-bar {
@@ -36,6 +39,7 @@
         left: 0;
         width: 100%;
         background-color: var(--theme-colors-card-dark);
+        transition: background-color var(--style-transition-theme);
         display: flex;
         flex-direction: row;
         align-items: center;
@@ -64,5 +68,12 @@
 
     a {
         text-decoration: none;
+    }
+
+    .download-icon {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: #fff;
     }
 </style>

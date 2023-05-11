@@ -1,8 +1,8 @@
 <script>
     export let name = "link";
-    export let color = "white";
     export let size = "2em";
     export let stroke_width = null;
+    export let use_color = true;
 
     name = name.toLowerCase();
 </script>
@@ -11,7 +11,7 @@
     <svg
         xmlns="http://www.w3.org/2000/svg"
         viewBox="3 3 24.5 24.5"
-        fill={color}
+        fill="currentColor"
         height={size}
         alt="python"
     >
@@ -25,7 +25,7 @@
         xml:space="preserve"
         viewBox="278 200 85 85"
         height={size}
-        fill={color}
+        fill="currentColor"
         alt="pytorch"
         ><path
             d="m63.1 28.3-6.6 6.6a27.3 27.3 0 0 1 0 38.8 27.3 27.3 0 0 1-38.8 0 27.3 27.3 0 0 1 0-38.8l17.1-17.1 2.4-2.4V2.5L11.4 28.3a36.7 36.7 0 0 0 0 52 36.3 36.3 0 0 0 51.7 0 36.7 36.7 0 0 0 0-52Z"
@@ -75,7 +75,7 @@
         xmlns="http://www.w3.org/2000/svg"
         viewBox="0 0 24.2 23.4"
         height={size}
-        fill={color}
+        fill="currentColor"
         alt="github"
         ><path
             d="M12 0C5.374 0 0 5.373 0 12c0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23A11.509 11.509 0 0 1 12 5.803c1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576C20.566 21.797 24 17.3 24 12c0-6.627-5.373-12-12-12z"
@@ -86,7 +86,7 @@
         xmlns="http://www.w3.org/2000/svg"
         viewBox="0 0 24 24"
         height={size}
-        fill={color ? color : "#2867B2"}
+        fill={use_color ? "currentColor" : "#2867B2"}
         alt="linkedin"
         ><path
             d="M19 0H5a5 5 0 0 0-5 5v14a5 5 0 0 0 5 5h14a5 5 0 0 0 5-5V5a5 5 0 0 0-5-5zM8 19H5V8h3v11zM6.5 6.7c-1 0-1.8-.8-1.8-1.7s.8-1.8 1.8-1.8S8.3 4 8.3 5s-.8 1.7-1.8 1.7zM20 19h-3v-5.6c0-3.4-4-3.1-4 0V19h-3V8h3v1.8c1.4-2.6 7-2.8 7 2.4V19z"
@@ -97,7 +97,7 @@
         xmlns="http://www.w3.org/2000/svg"
         viewBox="16 16 32 32"
         height={size}
-        fill={color}
+        fill="currentColor"
         alt="rust"
     >
         <path
@@ -108,7 +108,7 @@
     <svg
         xmlns="http://www.w3.org/2000/svg"
         fill="none"
-        stroke={color}
+        stroke="currentColor"
         stroke-width={stroke_width ? stroke_width : "0.125em"}
         height={size}
         class="w-6 h-6"
@@ -124,7 +124,7 @@
     <svg
         xmlns="http://www.w3.org/2000/svg"
         viewBox="-4 -6 60 60"
-        fill={color}
+        fill="currentColor"
         height={size}
         alt="email"
     >
@@ -141,7 +141,7 @@
     <svg
         xmlns="http://www.w3.org/2000/svg"
         fill="none"
-        stroke={color}
+        stroke="currentColor"
         stroke-width={stroke_width ? stroke_width : "0.125em"}
         height={size}
         class="h-6 w-6"
@@ -156,7 +156,7 @@
     <svg
         xmlns="http://www.w3.org/2000/svg"
         fill="none"
-        stroke={color}
+        stroke="currentColor"
         stroke-width={stroke_width ? stroke_width : "0.095em"}
         height={size}
         class="h-6 w-6"
@@ -172,8 +172,8 @@
     <svg
         xmlns="http://www.w3.org/2000/svg"
         class="h-5 w-5"
-        viewBox="2 2 16 16"
-        fill={color}
+        viewBox="1 1 18 18"
+        fill="currentColor"
         height={size}
         ><path
             fill-rule="evenodd"
@@ -186,12 +186,27 @@
         xmlns="http://www.w3.org/2000/svg"
         class="h-5 w-5"
         viewBox="0 0 20 20"
-        fill={color}
+        fill="currentColor"
         height={size}
         ><path d="M17.3 13.3A8 8 0 0 1 6.7 2.7a8 8 0 1 0 10.6 10.6z" /></svg
     >
+{:else if name === "chevron-down"}
+    <svg
+        xmlns="http://www.w3.org/2000/svg"
+        fill="none"
+        height={size}
+        stroke="currentColor"
+        stroke-width="2"
+        class="h-6 w-6"
+        viewBox="0 0 24 24"
+        ><path
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            d="m19 9-7 7-7-7"
+        /></svg
+    >
 {:else}
-    <p style="font-size: {size - 1}; color: {color}">{name}</p>
+    <p style="font-size: {size - 1};">{name}</p>
 {/if}
 
 <style>

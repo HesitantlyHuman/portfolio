@@ -23,11 +23,7 @@
                 <ul class="tech-icons">
                     {#each techs as tech}
                         <li>
-                            <Icon
-                                name={tech.toLowerCase()}
-                                color="var(--theme-colors-label-text)"
-                                size="1.8em"
-                            />
+                            <Icon name={tech.toLowerCase()} size="1.8em" />
                         </li>
                     {/each}
                 </ul>
@@ -40,7 +36,6 @@
                             <a href={link.url}>
                                 <Icon
                                     name={link.name.toLowerCase()}
-                                    color="var(--theme-colors-card-footer)"
                                     size="2em"
                                 />
                             </a>
@@ -60,6 +55,7 @@
         align-items: left;
         height: 22em;
         background-color: var(--theme-colors-card-background);
+        transition: background-color var(--style-transition-theme);
     }
 
     article .image {
@@ -91,9 +87,9 @@
     article .info aside {
         order: 1;
         display: flex;
-        border: var(--theme-style-border-width) solid
-            var(--theme-colors-label-border);
+        border: var(--style-border-width) solid var(--theme-colors-label-border);
         background-color: var(--theme-colors-label-background);
+        transition: all var(--style-transition-theme);
         border-radius: 10px;
         width: fit-content;
         padding: 0;
@@ -105,10 +101,11 @@
         margin: 0;
         padding-block: 0.5em;
         padding-inline: 2em;
-        border-right: var(--theme-style-border-width) solid
+        border-right: var(--style-border-width) solid
             var(--theme-colors-label-border);
         font-size: 1em;
         color: var(--theme-colors-label-text);
+        transition: all var(--style-transition-theme);
     }
 
     .tech-icons {
@@ -124,6 +121,8 @@
         display: flex;
         align-items: center;
         margin-left: 1em;
+        color: var(--theme-colors-label-text);
+        transition: color var(--style-transition-theme);
     }
 
     .tech-icons li:first-child {
@@ -140,6 +139,11 @@
 
     .link-icons li {
         margin-left: 1.5em;
+    }
+
+    .link-icons li a {
+        color: var(--theme-colors-label-text);
+        transition: color var(--style-transition-theme);
     }
 
     .link-icons li:first-child {

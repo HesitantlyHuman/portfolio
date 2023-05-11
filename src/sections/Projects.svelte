@@ -171,6 +171,7 @@
         border: none;
         height: 2em;
         color: var(--theme-colors-text-body);
+        transition: all var(--style-transition-theme);
     }
 
     .category-filters {

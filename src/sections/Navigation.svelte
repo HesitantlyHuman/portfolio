@@ -88,6 +88,7 @@
         position: fixed;
         width: 100%;
         background-color: var(--theme-colors-hero-background);
+        transition: background-color var(--style-transition-theme);
         z-index: 1;
     }
 
@@ -137,16 +138,19 @@
 
     nav ul li a:hover {
         background-color: var(--theme-colors-hero-highlight);
+        transition: background-color var(--style-transition-theme);
         box-shadow: 0 -4px 0 0 var(--theme-colors-hero-border) inset;
     }
 
     .active {
         background-color: var(--theme-colors-hero-highlight);
+        transition: background-color var(--style-transition-theme);
         box-shadow: 0 -4px 0 0 var(--theme-colors-hero-border) inset;
     }
 
     .logo {
         background-color: var(--theme-colors-hero-highlight);
+        transition: background-color var(--style-transition-theme);
         border-radius: 50%;
         width: 3.5em;
         height: 3.5em;
