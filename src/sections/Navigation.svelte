@@ -1,4 +1,6 @@
 <script>
+    import { base } from "$app/paths";
+
     import Icon from "../components/Icon.svelte";
     import ThemeToggle from "../components/ThemeToggle.svelte";
 
@@ -47,7 +49,8 @@
     function handleNavigationClick(event) {
         event.preventDefault();
         const target = event.target;
-        const href = target.getAttribute("href");
+        let href = target.getAttribute("href");
+        href = href.replace(base, "");
         navigateToSection(href);
     }
 </script>
@@ -55,7 +58,7 @@
 <div id="banner-spacer" style="height:{height};" />
 <nav id="banner">
     <div class="nav-container">
-        <a href="/" class="logo" aria-hidden="true">
+        <a href={base} class="logo" aria-hidden="true">
             <Icon name="logo" size="3em" />
         </a>
         <div class="nav-left">
@@ -64,7 +67,7 @@
                     <li>
                         <a
                             rel="external"
-                            href={link.link}
+                            href={base + link.link}
                             style="line-height:{height}"
                             on:click={handleNavigationClick}
                             class={false ? "active" : ""}

@@ -1,4 +1,6 @@
 <script>
+    import { base } from "$app/paths";
+
     import Card from "../components/Card.svelte";
     import Icon from "../components/Icon.svelte";
 
@@ -10,7 +12,7 @@
     let file_name = download_url.split("/").pop();
 </script>
 
-<a href={download_url} download={file_name}>
+<a href={base + download_url} download={file_name}>
     <Card hover={true}>
         <div class="image">
             <img src={preview_image} alt="Resume" />
