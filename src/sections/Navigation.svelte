@@ -1,4 +1,6 @@
 <script>
+    import { base } from "$app/paths";
+
     import Icon from "../components/Icon.svelte";
     import ThemeToggle from "../components/ThemeToggle.svelte";
 
