@@ -4,28 +4,7 @@
     import Icon from "../components/Icon.svelte";
     import ThemeToggle from "../components/ThemeToggle.svelte";
 
-    export let nav_links = [
-        {
-            name: "About",
-            link: "about",
-        },
-        {
-            name: "Projects",
-            link: "projects",
-        },
-        {
-            name: "Experience",
-            link: "experience",
-        },
-        {
-            name: "Resume",
-            link: "downloads",
-        },
-        {
-            name: "Contact",
-            link: "contact",
-        },
-    ];
+    export let nav_links = [];
 
     export let height = "5em";
     export let theme_function;

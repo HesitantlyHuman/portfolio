@@ -2,23 +2,7 @@
     import Icon from "../components/Icon.svelte";
     import ContentColumn from "../components/ContentColumn.svelte";
 
-    export let contacts = [
-        {
-            name: "Email",
-            text: "none@gmail.com",
-            link: "mailto:none@gmail.com",
-        },
-        {
-            name: "GitHub",
-            text: "/none",
-            link: "https://www.github.com/none/",
-        },
-        {
-            name: "LinkedIn",
-            text: "/none",
-            link: "https://www.linkedin.com/in/none/",
-        },
-    ];
+    export let contacts = [];
 </script>
 
 <footer id="contact">

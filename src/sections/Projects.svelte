@@ -5,14 +5,6 @@
     import Filter from "../components/Filter.svelte";
     import Card from "../components/Card.svelte";
 
-    let filter_text = "";
-    let filter_techs = ["Python", "Rust", "PyTorch"];
-    let filter_categories = [
-        "Machine learning",
-        "Data collection",
-        "Game theory",
-    ];
-
     // We should probably cache the outputs of each of the filter steps
     // independently. That way we only have to recompute the changed filter
     // step
@@ -59,60 +51,21 @@
     import nebula_transformed from "/src/images/nebula.webp?format=webp&w=340&aspect=1:1";
     import dice_transformed from "/src/images/dice.jpg?format=webp&w=340&aspect=1:1";
 
-    let projects = [
-        {
-            name: "Open Lyrics Dataset",
-            description: "A dataset of song lyrics",
-            category: "Data collection",
-            image: lyrics_transformed,
-            image_alt: "lyrics on sheet music",
-            techs: ["Python"],
-            links: [
-                {
-                    name: "GitHub",
-                    url: "",
-                },
-            ],
-        },
-        {
-            name: "Generating structured latent spaces with VAEs",
-            description:
-                "Implementation of a novel method for deep archetypal analysis, with the aim of creating highly interpretable latent spaces.",
-            category: "Machine learning",
-            image: nebula_transformed,
-            image_alt: "a nebula",
-            techs: ["Python", "PyTorch"],
-            links: [
-                {
-                    name: "GitHub",
-                    url: "",
-                },
-                {
-                    name: "Paper",
-                    url: "",
-                },
-            ],
-        },
-        {
-            name: "Calculating optimal bets in CamelUp",
-            description:
-                "Ever played this obscure yet fun board game, and felt a burning desire to win at all costs? Well, you're in luck! I spent far too many hours of my life creating the stockcamel engine in high performance, multi-threaded rust.",
-            category: "Game theory",
-            image: dice_transformed,
-            image_alt: "Black and white dice",
-            techs: ["Rust"],
-            links: [
-                {
-                    name: "GitHub",
-                    url: "",
-                },
-                {
-                    name: "Link",
-                    url: "",
-                },
-            ],
-        },
-    ];
+    export let projects = [];
+
+    let filter_text = "";
+    let filter_techs = new Set();
+    for (const project of projects) {
+        for (const tech of project.techs) {
+            filter_techs.add(tech);
+        }
+    }
+    filter_techs = Array.from(filter_techs);
+    let filter_categories = new Set();
+    for (const project of projects) {
+        filter_categories.add(project.category);
+    }
+    filter_categories = Array.from(filter_categories);
 
     $: visible_projects = projects.filter((project) =>
         project_is_visible(

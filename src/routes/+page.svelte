@@ -9,6 +9,9 @@
     import Contact from "../sections/Contact.svelte";
     import Navigation from "../sections/Navigation.svelte";
 
+    /** @type {import('./$types').PageData}*/
+    export let data;
+
     import { themes } from "../themes.js";
     import { style } from "../style.js";
     import { onMount } from "svelte";
@@ -42,16 +45,22 @@
     }
 </script>
 
-<Navigation theme_function={toggleTheme} theme={theme.name} height="5em" />
+<Navigation
+    theme_function={toggleTheme}
+    theme={theme.name}
+    height="5em"
+    nav_links={data.navigation.links}
+/>
 <ContentColumn>
     <About
-        name="Tanner Sims"
-        about_text="Hi, I'm Tanner. I'm a software engineer and data scientist."
+        name={data.about.name}
+        description={data.about.description}
+        links={data.about.links}
     />
-    <Projects />
-    <Experience />
-    <Downloads />
-    <Contact />
+    <Projects projects={data.projects} />
+    <Experience experience={data.experience} />
+    <Downloads downloads={data.downloads} />
+    <Contact contacts={data.contacts} />
 </ContentColumn>
 
 <style>

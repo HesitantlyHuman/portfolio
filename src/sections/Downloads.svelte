@@ -4,26 +4,22 @@
 
     import resume_preview_transformed from "/src/images/resume.png?format=webp&w=340&aspect=1:1";
     import cv_preview_transformed from "/src/images/cv.png?format=webp&w=340&aspect=1:1";
+
+    export let downloads = [];
 </script>
 
 <Section title="Downloads" id="downloads">
     <ul>
-        <li>
-            <DownloadCard
-                name="Resume"
-                file_size="123kb"
-                download_url="downloads/resume.pdf"
-                preview_image={resume_preview_transformed}
-            />
-        </li>
-        <li>
-            <DownloadCard
-                name="CV"
-                file_size="123kb"
-                download_url="downloads/cv.pdf"
-                preview_image={cv_preview_transformed}
-            />
-        </li>
+        {#each downloads as download}
+            <li>
+                <DownloadCard
+                    name={download.name}
+                    file_size={download.file_size}
+                    download_url={download.download_url}
+                    preview_image={download.preview_image}
+                />
+            </li>
+        {/each}
     </ul>
 </Section>
 

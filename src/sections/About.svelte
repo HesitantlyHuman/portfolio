@@ -5,22 +5,32 @@
 
     export let name = "Tanner Sims";
     export let about_text = "About text";
+
+    export let links = [
+        { name: "Github", link: "" },
+        { name: "Linkedin", link: "" },
+    ];
 </script>
 
 <Section id="about">
-    <div id="about-spacer" style="height: 3em;" />
+    <div id="about-spacer" style="height: 3em;" aria-hidden="true" />
     <Card>
         <div class="about-card">
             <div class="content">
                 <h1>{name}</h1>
                 <p>{about_text}</p>
                 <ul>
-                    <li>
-                        <Icon name="github" size="2em" />
-                    </li>
-                    <li>
-                        <Icon name="linkedin" size="2em" use_color={false} />
-                    </li>
+                    {#each links as link}
+                        <li>
+                            <a href={link.link}>
+                                <Icon
+                                    name={link.name.toLowerCase()}
+                                    size="2em"
+                                    use_color={false}
+                                />
+                            </a>
+                        </li>
+                    {/each}
                 </ul>
             </div>
             <div class="headshot">
@@ -50,7 +60,7 @@
         padding-block: 1em;
     }
 
-    .about-card ul > li {
+    .about-card ul li a {
         margin-inline: 1.5em;
         display: flex;
         align-items: center;
@@ -59,7 +69,7 @@
         transition: color var(--style-transition-theme);
     }
 
-    .about-card ul > li:first-child {
+    .about-card ul > li:first-child a {
         margin-inline: 0;
     }
 

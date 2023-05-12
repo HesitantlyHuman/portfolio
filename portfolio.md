@@ -3,7 +3,7 @@
 - [About](#about)
 - [Projects](#projects)
 - [Experience](#experience)
-- [Downloads](#downloads)
+- [Resume](#downloads)
 - [Contact](#contact)
 
 # About
