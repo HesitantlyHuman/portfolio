@@ -1,6 +1,8 @@
 import sharp from "sharp";
 import fs from "fs";
 
+import { base } from "$app/paths";
+
 function prepare_image(image_path) {
     // Where the images are stored by user
     let current_path = image_path
@@ -19,7 +21,7 @@ function prepare_image(image_path) {
 
     // Return the new path in a sveltekit friendly format
 
-    return current_path.replace("static", "");
+    return base + current_path.replace("static", "");
 }
 
 function convert_image_props(object) {
