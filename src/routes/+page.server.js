@@ -21,7 +21,7 @@ function prepare_image(image_path) {
 
     // Return the new path in a sveltekit friendly format
 
-    return base + current_path.replace("static", "");
+    return base + new_path.replace("static", "");
 }
 
 function convert_image_props(object) {
