@@ -15,8 +15,8 @@ function prepare_image(image_path) {
         .split(".")[0] + ".webp";
 
     sharp(current_path)
-        .resize(340, 340, { fit: "cover" })
-        .webp({ quality: 90 })
+        .resize(720, 720, { fit: "cover" })
+        .webp({ quality: 80 })
         .toFile(new_path);
 
     // Return the new path in a sveltekit friendly format
