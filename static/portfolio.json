@@ -1,0 +1,180 @@
+{
+    "navigation": [
+        {
+            "name": "About",
+            "url": "about"
+        },
+        {
+            "name": "Projects",
+            "url": "projects"
+        },
+        {
+            "name": "Experience",
+            "url": "experience"
+        },
+        {
+            "name": "Resume",
+            "url": "downloads"
+        },
+        {
+            "name": "Contact",
+            "url": "contact"
+        }
+    ],
+    "about": {
+        "name": "Tanner Sims",
+        "blurb": "I am a machine learning engineer with a passion for creating novel and interpretable models. I am currently a senior at the University of Utah, majoring in mathematics and minoring in computer science. I have worked on a variety of projects, ranging from unsupervised NLP embedding methods to game theory simulations. I am currently working on a project to create a novel method for deep archetypal analysis, with the aim of creating highly interpretable latent spaces. These tools are used to analyze the white supremicist forum iron march.",
+        "image": {
+            "src": "",
+            "alt": "Hesitantly Human icon"
+        },
+        "links": [
+            {
+                "name": "Github",
+                "url": ""
+            },
+            {
+                "name": "LinkedIn",
+                "url": ""
+            }
+        ]
+    },
+    "projects": [
+        {
+            "name": "Structured Latent Spaces with Large Language Models",
+            "description": "We introduce a novel method for deep archetypal analysis, and apply it to large language models. By doing so, we are able to create a meaningful, low dimensional representation of unlabeled textual datasets. We show the advantages of this interpretability by applying our method to data scraped from the white supremicist forum Iron March.",
+            "category": "Machine Learning",
+            "image": {
+                "src": "/images/nebula.webp",
+                "alt": "nebula"
+            },
+            "technologies": [
+                "Python",
+                "Pytorch"
+            ],
+            "links": [
+                {
+                    "name": "Github",
+                    "url": ""
+                },
+                {
+                    "name": "Paper",
+                    "url": ""
+                }
+            ]
+        },
+        {
+            "name": "Calculating Optimal Bets in CamelUp",
+            "description": "Ever played this obscure yet fun board game, and felt a burning desire to win at all costs? Well you’re in luck! I spent far too many hours of my life creating the stockcamel engine in high performant, multithreaded rust.",
+            "category": "Game Theory",
+            "image": {
+                "src": "/images/dice.jpg",
+                "alt": "dice"
+            },
+            "technologies": [
+                "Rust"
+            ],
+            "links": [
+                {
+                    "name": "Github",
+                    "url": ""
+                }
+            ]
+        },
+        {
+            "name": "Open Lyrics Dataset",
+            "description": "I scraped the lyrics from 100,000+ songs from genius.com, and made them available for anyone to use. I also created a simple API to access the data, and a python package to make it easy to use.",
+            "category": "Data Science",
+            "image": {
+                "src": "/images/lyrics.jpg",
+                "alt": "lyrics"
+            },
+            "technologies": [
+                "Python"
+            ],
+            "links": [
+                {
+                    "name": "Github",
+                    "url": ""
+                },
+                {
+                    "name": "Link",
+                    "url": ""
+                }
+            ]
+        }
+    ],
+    "experience": [
+        {
+            "company": "University of Utah",
+            "position": "Undergraduate Researcher",
+            "duration": "Jan 2021 - Present",
+            "description": "I am currently working on a project to create a novel method for deep archetypal analysis, with the aim of creating highly interpretable latent spaces. These tools are used to analyze the white supremicist forum iron march.",
+            "link": {
+                "name": "Math Department Website",
+                "url": ""
+            }
+        },
+        {
+            "company": "Branch",
+            "position": "Machine Learning Engineer",
+            "duration": "Aug 2021 - Apr 2022",
+            "description": "Develop unsupervised NLP embedding methods for core Branch products. Design and implement data pipeline and internal machine learning tools. Oversee training and model deployment.",
+            "link": null
+        },
+        {
+            "company": "Opsis Health",
+            "position": "Machine Learning Contractor",
+            "duration": "Jan 2022 - Jun 2022",
+            "description": "Use python and pytorch to build, train and test various point cloud volume estimation models for upcoming Opsis health product. Implement and optimize new point cloud network methods based on recent white papers. Coordinate with deployment team to develop model pipeline and retraining strategies.",
+            "link": {
+                "name": "Opsis Website",
+                "url": ""
+            }
+        },
+        {
+            "company": "Branch",
+            "position": "Technical Lead",
+            "duration": "Apr 2022 - Jan 2023",
+            "description": "Managed development of new Branch product based on unsupervised NLP embedding methods I had developed. Architected backend system and oversaw developers of both frontend and backend.",
+            "link": null
+        }
+    ],
+    "downloads": [
+        {
+            "name": "Resume",
+            "url": "downloads/resume.pdf",
+            "file_size": "1.2MB",
+            "image": {
+                "src": "images/resume.png",
+                "alt": "resume"
+            }
+        },
+        {
+            "name": "CV",
+            "url": "downloads/cv.pdf",
+            "file_size": "1.2MB",
+            "image": {
+                "src": "images/cv.png",
+                "alt": "cv"
+            }
+        }
+    ],
+    "contact": [
+        {
+            "name": "Email",
+            "text": "random@gmail.com",
+            "url": "mailto:random@gmail.com"
+        },
+        {
+            "name": "Github",
+            "text": "github.com/random",
+            "url": ""
+        },
+        {
+            "name": "LinkedIn",
+            "text": "linkedin.com/in/random",
+            "url": ""
+        }
+    ]
+}

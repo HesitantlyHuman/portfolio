@@ -49,12 +49,12 @@
     theme_function={toggleTheme}
     theme={theme.name}
     height="5em"
-    nav_links={data.navigation.links}
+    nav_links={data.navigation}
 />
 <ContentColumn>
     <About
         name={data.about.name}
-        description={data.about.description}
+        blurb={data.about.blurb}
         links={data.about.links}
     />
     <Projects projects={data.projects} />

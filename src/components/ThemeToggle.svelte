@@ -63,6 +63,7 @@
         transition: background-color var(--style-transition-theme);
         color: var(--theme-colors-text-ondark);
         transition: color var(--style-transition-theme);
+        transition: color var(--style-transition-theme);
         position: absolute;
         transition: left 0.2s ease-in-out;
         display: flex;

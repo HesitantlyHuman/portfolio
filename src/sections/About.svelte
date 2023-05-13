@@ -4,12 +4,8 @@
     import Section from "../components/Section.svelte";
 
     export let name = "Tanner Sims";
-    export let about_text = "About text";
-
-    export let links = [
-        { name: "Github", link: "" },
-        { name: "Linkedin", link: "" },
-    ];
+    export let blurb = "About text";
+    export let links = [];
 </script>
 
 <Section id="about">
@@ -18,7 +14,7 @@
         <div class="about-card">
             <div class="content">
                 <h1>{name}</h1>
-                <p>{about_text}</p>
+                <p>{blurb}</p>
                 <ul>
                     {#each links as link}
                         <li>

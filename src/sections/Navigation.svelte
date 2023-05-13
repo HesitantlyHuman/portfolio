@@ -45,7 +45,7 @@
                     <li>
                         <a
                             rel="external"
-                            href={link.link}
+                            href={link.url}
                             style="line-height:{height}"
                             on:click={handleNavigationClick}
                             class={false ? "active" : ""}

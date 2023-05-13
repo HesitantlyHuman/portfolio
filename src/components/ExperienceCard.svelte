@@ -5,7 +5,7 @@
     export let position = "Position";
     export let duration = "Jan 1900 - Present";
     export let description = "One of the jobs of all jobs.";
-    export let link = "https://www.example.com/";
+    export let link = null;
 </script>
 
 <article>
@@ -15,9 +15,11 @@
                 <h3>{company}</h3>
                 <h4>{position.toUpperCase()}</h4>
                 <summary><p>{description}</p></summary>
-                <footer>
-                    <a href={link}>{company} Website ></a>
-                </footer>
+                {#if link}
+                    <footer>
+                        <a href={link.url}>{link.name} ></a>
+                    </footer>
+                {/if}
             </div>
             <div class="style_box" />
         </div>

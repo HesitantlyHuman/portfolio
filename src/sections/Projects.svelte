@@ -30,7 +30,7 @@
             visible =
                 visible &&
                 filter_techs.some((tech) =>
-                    project.techs.some((project_tech) =>
+                    project.technologies.some((project_tech) =>
                         project_tech.toLowerCase().includes(tech)
                     )
                 );
@@ -47,16 +47,12 @@
         return visible;
     }
 
-    import lyrics_transformed from "/src/images/lyrics.jpg?format=webp&w=340&aspect=1:1";
-    import nebula_transformed from "/src/images/nebula.webp?format=webp&w=340&aspect=1:1";
-    import dice_transformed from "/src/images/dice.jpg?format=webp&w=340&aspect=1:1";
-
     export let projects = [];
 
     let filter_text = "";
     let filter_techs = new Set();
     for (const project of projects) {
-        for (const tech of project.techs) {
+        for (const tech of project.technologies) {
             filter_techs.add(tech);
         }
     }
@@ -106,9 +102,9 @@
                 name={project.name}
                 description={project.description}
                 category={project.category}
-                image={project.image}
-                image_alt={project.image_alt}
-                techs={project.techs}
+                image={project.image.src}
+                image_alt={project.image.alt}
+                techs={project.technologies}
                 links={project.links}
             />
         {/each}

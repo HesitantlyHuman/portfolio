@@ -2,9 +2,6 @@
     import Section from "../components/Section.svelte";
     import DownloadCard from "../components/DownloadCard.svelte";
 
-    import resume_preview_transformed from "/src/images/resume.png?format=webp&w=340&aspect=1:1";
-    import cv_preview_transformed from "/src/images/cv.png?format=webp&w=340&aspect=1:1";
-
     export let downloads = [];
 </script>
 
@@ -15,8 +12,9 @@
                 <DownloadCard
                     name={download.name}
                     file_size={download.file_size}
-                    download_url={download.download_url}
-                    preview_image={download.preview_image}
+                    download_url={download.url}
+                    preview_image={download.image.src}
+                    preview_image_alt={download.image.alt}
                 />
             </li>
         {/each}

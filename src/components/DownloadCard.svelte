@@ -8,6 +8,7 @@
     export let file_size = "0kb";
     export let download_url = "";
     export let preview_image = "";
+    export let preview_image_alt = "";
 
     let file_name = download_url.split("/").pop();
 </script>
@@ -15,7 +16,7 @@
 <a href={base + "/" + download_url} download={file_name}>
     <Card hover={true}>
         <div class="image">
-            <img src={preview_image} alt="Resume" />
+            <img src={preview_image} alt={preview_image_alt} />
         </div>
         <div class="info-bar">
             <div class="title-block">
