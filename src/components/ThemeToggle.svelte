@@ -4,18 +4,25 @@
     export let theme_function;
     export let theme = "dark";
 
-    let toggle_left = true;
-
     function toggle_theme() {
-        toggle_left = !toggle_left;
-        theme_function(toggle_left);
+        theme_function();
     }
 </script>
 
 <div class="toggle-container" aria-hidden="true">
-    <div class="toggle-button" on:click={toggle_theme}>
+    <div
+        role="button"
+        tabindex="0"
+        class="toggle-button"
+        on:click={toggle_theme}
+        on:keydown={(event) => {
+            if (event.key === "Enter") {
+                toggle_theme();
+            }
+        }}
+    >
         <div class="toggle-notch" />
-        <div class="toggle-nob" style="left:{toggle_left ? '0.5em' : '2em'}">
+        <div class="toggle-nob">
             <Icon name={theme} size="1.15em" />
         </div>
     </div>
@@ -56,6 +63,7 @@
     }
 
     .toggle-nob {
+        left: var(--theme-toggle-left);
         width: 1.5em;
         height: 1.5em;
         border-radius: 50%;

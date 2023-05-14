@@ -4,6 +4,7 @@
     import Project from "../components/Project.svelte";
     import Filter from "../components/Filter.svelte";
     import Card from "../components/Card.svelte";
+    import Icon from "../components/Icon.svelte";
 
     // We should probably cache the outputs of each of the filter steps
     // independently. That way we only have to recompute the changed filter
@@ -76,14 +77,15 @@
 <Section title="Projects" id="projects">
     <ContentList>
         <div class="filter-header">
-            <Card>
-                <input
-                    type="text"
-                    bind:value={filter_text}
-                    placeholder="Search"
-                    class="filter-input"
-                />
-            </Card>
+            <input
+                type="text"
+                bind:value={filter_text}
+                placeholder="Search"
+                class="filter-input"
+            />
+            <div class="search-icon">
+                <Icon name="search" size="1.25em" />
+            </div>
             <div class="category-filters">
                 <Filter
                     filter_name="Technologies"
@@ -117,6 +119,21 @@
         flex-direction: row;
         justify-content: space-between;
         align-items: center;
+        color: var(--theme-colors-label-text);
+        transition: color var(--style-transition-theme);
+    }
+
+    .filter-header .search-icon {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin-inline: 0.75em;
+        position: absolute;
+        opacity: 0.8;
+    }
+
+    .filter-header input:hover + .search-icon {
+        opacity: 1;
     }
 
     .filter-header input {
@@ -125,7 +142,13 @@
         height: 2em;
         color: var(--theme-colors-text-body);
         transition: all var(--style-transition-theme);
-        padding-inline: 1em;
+        padding-inline: 3em;
+        border-radius: 100px;
+    }
+
+    .filter-header input:focus:not(:focus-visible) {
+        outline: none;
+        box-shadow: 0 0 0 var(--style-border-width) var(--theme-colors-accent);
     }
 
     .category-filters {

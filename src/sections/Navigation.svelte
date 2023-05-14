@@ -22,7 +22,9 @@
         });
         const sectionHeading =
             scrollTarget.getElementsByClassName("section-title")[0];
-        sectionHeading.focus({ preventScroll: true });
+        if (sectionHeading) {
+            sectionHeading.focus({ preventScroll: true });
+        }
     }
 
     function handleNavigationClick(event) {
