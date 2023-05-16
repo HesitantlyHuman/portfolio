@@ -43,7 +43,7 @@ function convert_image_props(object) {
 
 /** @type {import('./$types').PageLoad} */
 export async function load({ fetch, _ }) {
-    let portfolio_doc = await fetch('portfolio.json');
+    let portfolio_doc = await fetch('../portfolio.json');
     let portfolio_text = await portfolio_doc.text();
     let portfolio_data = JSON.parse(portfolio_text);
 

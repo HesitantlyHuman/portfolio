@@ -1,10 +1,14 @@
 <script>
+    import { flip } from "svelte/animate";
+
     import Section from "../components/Section.svelte";
     import ContentList from "../components/ContentList.svelte";
     import Project from "../components/Project.svelte";
     import Filter from "../components/Filter.svelte";
     import Card from "../components/Card.svelte";
     import Icon from "../components/Icon.svelte";
+    import { onMount } from "svelte";
+    import { fade } from "svelte/transition";
 
     // We should probably cache the outputs of each of the filter steps
     // independently. That way we only have to recompute the changed filter
@@ -41,7 +45,9 @@
             visible =
                 visible &&
                 filter_categories.some((cat) =>
-                    project.category.toLowerCase().includes(cat)
+                    project.categories.some((project_cat) =>
+                        project_cat.toLowerCase().includes(cat)
+                    )
                 );
         }
 
@@ -52,17 +58,23 @@
 
     let filter_text = "";
     let filter_techs = new Set();
+    let filter_categories = new Set();
     for (const project of projects) {
         for (const tech of project.technologies) {
             filter_techs.add(tech);
         }
+        for (const cat of project.categories) {
+            filter_categories.add(cat);
+        }
     }
     filter_techs = Array.from(filter_techs);
-    let filter_categories = new Set();
-    for (const project of projects) {
-        filter_categories.add(project.category);
-    }
     filter_categories = Array.from(filter_categories);
+
+    projects = projects.map((project, idx) => {
+        console.log("idx is: " + idx);
+        project.id = idx;
+        return project;
+    });
 
     $: visible_projects = projects.filter((project) =>
         project_is_visible(
@@ -99,17 +111,25 @@
             </div>
         </div>
 
-        {#each visible_projects as project}
-            <Project
-                name={project.name}
-                description={project.description}
-                category={project.category}
-                image={project.image.src}
-                image_alt={project.image.alt}
-                techs={project.technologies}
-                links={project.links}
-            />
-        {/each}
+        <ul>
+            {#each visible_projects as project (project.id)}
+                <li
+                    in:fade={{ duration: 100 }}
+                    out:fade={{ duration: 100 }}
+                    animate:flip={{ duration: 300 }}
+                >
+                    <Project
+                        name={project.name}
+                        description={project.description}
+                        categories={project.categories}
+                        image={project.image.src}
+                        image_alt={project.image.alt}
+                        techs={project.technologies}
+                        links={project.links}
+                    />
+                </li>
+            {/each}
+        </ul>
     </ContentList>
 </Section>
 
@@ -154,5 +174,18 @@
     .category-filters {
         display: flex;
         flex-direction: row;
+    }
+
+    ul {
+        display: flex;
+        flex-direction: row;
+        flex-wrap: wrap;
+        list-style: none;
+        margin: 0;
+        padding: 0;
+    }
+
+    ul li {
+        margin-bottom: 1em;
     }
 </style>

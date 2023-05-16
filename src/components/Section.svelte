@@ -13,7 +13,7 @@
 
 <style>
     section {
-        margin-bottom: 3em;
+        margin-bottom: 5em;
     }
 
     p {
@@ -28,6 +28,7 @@
 
     h2 {
         margin: 0;
+        margin-top: 0.5em;
         padding: 0.5em;
     }
 </style>

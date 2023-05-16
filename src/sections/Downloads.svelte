@@ -26,8 +26,8 @@
         display: flex;
         flex-direction: row;
         list-style: none;
+        margin: 0;
         padding-inline: 0;
-        padding-block: 1em;
         justify-content: space-between;
     }
 

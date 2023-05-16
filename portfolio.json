@@ -41,9 +41,12 @@
     },
     "projects": [
         {
-            "name": "Structured Latent Spaces with Large Language Models",
-            "description": "We introduce a novel method for deep archetypal analysis, and apply it to large language models. By doing so, we are able to create a meaningful, low dimensional representation of unlabeled textual datasets. We show the advantages of this interpretability by applying our method to data scraped from the white supremicist forum Iron March.",
-            "category": "Machine Learning",
+            "name": "Structured Latent Spaces with LLMs",
+            "description": "We introduce a novel method for deep archetypal analysis and create a structured, low dimensional representation of unlabeled textual datasets. We demonstrate this interpretability using data scraped from the white supremicist forum Iron March.",
+            "categories": [
+                "Machine Learning",
+                "LLMs"
+            ],
             "image": {
                 "src": "/images/nebula.webp",
                 "alt": "nebula"
@@ -66,7 +69,10 @@
         {
             "name": "Calculating Optimal Bets in CamelUp",
             "description": "Ever played this obscure yet fun board game, and felt a burning desire to win at all costs? Well you’re in luck! I spent far too many hours of my life creating the stockcamel engine in high performant, multithreaded rust.",
-            "category": "Game Theory",
+            "categories": [
+                "Game Theory",
+                "Markov Chains"
+            ],
             "image": {
                 "src": "/images/dice.jpg",
                 "alt": "dice"
@@ -84,7 +90,10 @@
         {
             "name": "Open Lyrics Dataset",
             "description": "I scraped the lyrics from 100,000+ songs from genius.com, and made them available for anyone to use. I also created a simple API to access the data, and a python package to make it easy to use.",
-            "category": "Data Science",
+            "categories": [
+                "Data Science",
+                "Web Scraping"
+            ],
             "image": {
                 "src": "/images/lyrics.jpg",
                 "alt": "lyrics"

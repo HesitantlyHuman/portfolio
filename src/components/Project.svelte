@@ -1,14 +1,21 @@
 <script>
+    import { flip } from "svelte/animate";
+
     import Card from "./Card.svelte";
     import Icon from "./Icon.svelte";
 
     export let name = "Project Name";
-    export let category = "Project Category";
+    export let categories = [];
     export let techs = [];
     export let description = "Project Description";
     export let image = "";
     export let image_alt = "Project Image";
     export let links = [];
+
+    $: techs = techs.map((tech) => tech.toLowerCase());
+    $: categories = categories.map((cat) =>
+        cat.toLowerCase().replace(" ", "_")
+    );
 </script>
 
 <Card hover={true}>
@@ -19,11 +26,17 @@
         <div class="info">
             <h3>{name}</h3>
             <aside>
-                <h4>{category.toUpperCase()}</h4>
+                <ul class="categories">
+                    {#each categories as category}
+                        <li>
+                            <h4>{category}</h4>
+                        </li>
+                    {/each}
+                </ul>
                 <ul class="tech-icons">
                     {#each techs as tech}
                         <li>
-                            <Icon name={tech.toLowerCase()} size="1.8em" />
+                            <Icon name={tech} size="1.8em" />
                         </li>
                     {/each}
                 </ul>
@@ -42,7 +55,7 @@
                         </li>
                     {/each}
                 </ul>
-                <p>Read more ></p>
+                <!-- <p>Read more ></p> -->
             </footer>
         </div>
     </article>
@@ -53,13 +66,13 @@
         display: flex;
         flex-direction: row;
         align-items: left;
-        height: 22em;
-        background-color: var(--theme-colors-card-background);
+        height: 20em;
+        background-color: var(--theme-colors-background);
         transition: background-color var(--style-transition-theme);
     }
 
     article .image {
-        width: 22em;
+        width: 23em;
         overflow: hidden;
         background-color: var(--theme-colors-card-accent);
         display: flex;
@@ -73,7 +86,7 @@
     }
 
     article .info {
-        padding-block: 2em;
+        margin: 0;
         padding-inline: 3em;
         display: flex;
         flex-direction: column;
@@ -82,72 +95,8 @@
 
     article .info h3 {
         order: 2;
-    }
-
-    article .info aside {
-        order: 1;
-        display: flex;
-        border: var(--style-border-width) solid var(--theme-colors-label-border);
-        background-color: var(--theme-colors-label-background);
-        transition: all var(--style-transition-theme);
-        border-radius: 10px;
-        width: fit-content;
-        padding: 0;
-    }
-
-    article .info aside h4 {
-        display: flex;
-        align-items: center;
-        margin: 0;
-        padding-block: 0.5em;
-        padding-inline: 2em;
-        border-right: var(--style-border-width) solid
-            var(--theme-colors-label-border);
-        font-size: 1em;
-        color: var(--theme-colors-label-text);
-        transition: all var(--style-transition-theme);
-    }
-
-    .tech-icons {
-        list-style-type: none;
-        display: flex;
-        flex-direction: row;
-        padding-block: 0.33em;
-        padding-inline: 1em;
-        margin: 0;
-    }
-
-    .tech-icons li {
-        display: flex;
-        align-items: center;
-        margin-left: 1em;
-        color: var(--theme-colors-label-text);
-        transition: color var(--style-transition-theme);
-    }
-
-    .tech-icons li:first-child {
-        margin-left: 0;
-    }
-
-    .link-icons {
-        list-style-type: none;
-        display: flex;
-        flex-direction: row;
-        padding: 0;
-        margin: 0;
-    }
-
-    .link-icons li {
-        margin-left: 1.5em;
-    }
-
-    .link-icons li a {
-        color: var(--theme-colors-label-text);
-        transition: color var(--style-transition-theme);
-    }
-
-    .link-icons li:first-child {
-        margin-left: 0;
+        margin-top: 0.66em;
+        margin-bottom: 0em;
     }
 
     article .info summary {
@@ -160,11 +109,66 @@
         padding: 0;
     }
 
+    article .info aside {
+        order: 1;
+        margin-top: 2em;
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: space-between;
+    }
+
+    article .info aside h4 {
+        margin: 0;
+        padding-block: 0.5em;
+        padding-inline: 1em;
+        font-size: 1em;
+        border-radius: 12px;
+        border: var(--style-border-width) solid var(--theme-colors-label-text);
+        color: var(--theme-colors-label-text);
+        transition: color var(--style-transition-theme);
+    }
+
+    .tech-icons,
+    .categories,
+    .link-icons {
+        list-style-type: none;
+        display: flex;
+        flex-direction: row;
+        padding: 0;
+        margin: 0;
+    }
+
+    .tech-icons li,
+    .categories li,
+    .link-icons li {
+        margin-left: 1.5em;
+        display: flex;
+        align-items: center;
+    }
+
+    .tech-icons li {
+        color: var(--theme-colors-label-text);
+        transition: color var(--style-transition-theme);
+    }
+
+    .tech-icons li:first-child,
+    .categories li:first-child,
+    .link-icons li:first-child {
+        margin-left: 0;
+    }
+
+    .link-icons li a {
+        color: var(--theme-colors-label-text);
+        transition: color var(--style-transition-theme);
+    }
+
     article .info footer {
         order: 4;
         display: flex;
         flex-direction: row;
         bottom: 0;
+        margin-bottom: 2em;
     }
 
     article .info footer p {

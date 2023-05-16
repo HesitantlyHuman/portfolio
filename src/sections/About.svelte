@@ -48,6 +48,10 @@
         justify-content: space-between;
     }
 
+    h1 {
+        margin: 0;
+    }
+
     .about-card ul {
         display: flex;
         flex-direction: row;
@@ -72,8 +76,8 @@
     .about-card .headshot {
         background-color: var(--theme-colors-hero-highlight);
         transition: background-color var(--style-transition-theme);
-        width: 19em;
-        height: 19em;
+        padding: 1.5em;
+        margin-left: 3em;
         border-radius: 50%;
         display: flex;
         align-items: center;

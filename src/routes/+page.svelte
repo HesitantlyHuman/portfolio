@@ -8,8 +8,8 @@
     import ContentColumn from "../components/ContentColumn.svelte";
     import Contact from "../sections/Contact.svelte";
     import Navigation from "../sections/Navigation.svelte";
+
     import { onMount } from "svelte";
-    import { toggle_class } from "svelte/internal";
 
     /** @type {import('./$types').PageData}*/
     export let data;
@@ -40,7 +40,7 @@
                 theme: "0.2s ease",
             },
             border: {
-                width: "1px",
+                width: "2px",
             },
         };
 
@@ -56,7 +56,7 @@
                     label: {
                         background: "#E6E5E5",
                         border: "#CDCECF",
-                        text: "#697276",
+                        text: "#9BA0A2",
                     },
                     card: {
                         background: "#fff",
@@ -183,53 +183,5 @@
     <Projects projects={data.projects} />
     <Experience experience={data.experience} />
     <Downloads downloads={data.downloads} />
-    <Contact contacts={data.contacts} />
+    <Contact contacts={data.contact} />
 </ContentColumn>
-
-<style>
-    :root {
-        --theme-colors-background: green;
-    }
-
-    :global(body) {
-        margin: 0;
-        padding: 0;
-        background-color: var(--theme-colors-background);
-        transition: background-color var(--style-transition-theme);
-    }
-
-    :global(h1, h2, h3, h4, h5) {
-        color: var(--theme-colors-text-header);
-        transition: color var(--style-transition-theme);
-        font-family: "Work Sans", sans-serif;
-    }
-
-    :global(h1) {
-        font-weight: 700;
-        font-size: 4em;
-    }
-
-    :global(h2) {
-        font-weight: 700;
-        font-size: 3em;
-        font-family: "IBM Plex Mono", monospace;
-    }
-
-    :global(h3) {
-        font-weight: 600;
-        font-size: 1.8em;
-    }
-
-    :global(h4) {
-        font-weight: 600;
-        font-size: 1.2em;
-    }
-
-    :global(p) {
-        font-weight: 300;
-        font-size: 1em;
-        font-family: "IBM Plex Mono", monospace;
-        color: var(--theme-colors-text-body);
-        transition: color var(--style-transition-theme);
-    }
-</style>

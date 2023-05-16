@@ -8,6 +8,7 @@
         padding: 2.5em;
         border-radius: 12px;
         transition: background-color var(--style-transition-theme);
+        height: 50em;
     }
 
     div :global(> *) {

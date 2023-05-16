@@ -98,7 +98,7 @@
     .dropdown {
         position: relative;
         display: flex;
-        width: 15em;
+        width: 14em;
         margin-left: 1.5em;
     }
 
@@ -177,7 +177,7 @@
         appearance: none;
         width: 1.3em;
         height: 1.3em;
-        border-radius: 15%;
+        border-radius: 20%;
         border: var(--style-border-width) solid var(--theme-colors-label-border);
         box-shadow: inset 0 0 0 0.15em var(--theme-colors-card-background);
         background-color: var(--theme-colors-card-background);
