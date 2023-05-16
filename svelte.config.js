@@ -15,6 +15,16 @@ export default {
         }),
         paths: {
             base: dev ? '' : process.env.BASE_PATH,
+        },
+        alias: {
+            "portfolio.json": "../portfolio.json"
         }
-    }
+    },
+    vite: {
+        server: {
+            fs: {
+                strict: false,
+            },
+        },
+    },
 };

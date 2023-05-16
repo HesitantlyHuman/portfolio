@@ -71,7 +71,6 @@
     filter_categories = Array.from(filter_categories);
 
     projects = projects.map((project, idx) => {
-        console.log("idx is: " + idx);
         project.id = idx;
         return project;
     });
