@@ -1,5 +1,5 @@
 <script>
-    import Card from "./Card.svelte";
+    import { onMount } from "svelte";
     import Icon from "./Icon.svelte";
 
     export let filter_name;
@@ -8,7 +8,7 @@
     export let filter_state = {};
 
     for (let filter_name of filter_options) {
-        filter_state[filter_name] = true;
+        filter_state[filter_name] = false;
     }
     filter_state["all"] = true;
 
@@ -16,18 +16,34 @@
     possible_filter_items.splice(0, 0, "all");
 
     function toggleFilter(filter_name) {
+        filter_state[filter_name] = !filter_state[filter_name];
+
         if (filter_name == "all") {
             for (let filter_name of possible_filter_items) {
-                filter_state[filter_name] = true;
+                if (filter_name != "all") {
+                    filter_state[filter_name] = !filter_state["all"];
+                }
             }
         } else {
-            filter_state["all"] = false;
-            filter_state[filter_name] = !filter_state[filter_name];
+            filter_state["all"] = true;
+            for (let filter_name of possible_filter_items) {
+                if (filter_name != "all" && filter_state[filter_name]) {
+                    filter_state["all"] = false;
+                }
+            }
         }
 
-        filter_options = Object.keys(filter_state).filter(
-            (filter_name) => filter_state[filter_name]
-        );
+        if (filter_state["all"]) {
+            filter_options = Object.keys(filter_state).filter(
+                (filter_name) => filter_name != "all"
+            );
+        } else {
+            filter_options = Object.keys(filter_state).filter(
+                (filter_name) =>
+                    filter_state[filter_name] && filter_name != "all"
+            );
+        }
+
         filter_state = filter_state;
     }
 
@@ -38,7 +54,6 @@
     }
 </script>
 
-<!-- <Card> -->
 <div class="dropdown">
     <button class="dropdown-header" on:click={toggleDropdown}>
         <h4>{filter_name}</h4>
@@ -49,39 +64,41 @@
     {#if dropdown_open}
         <ul>
             {#each possible_filter_items as filter_item}
-                <button
-                    type="checkbox"
-                    class={filter_state[filter_item] ? "" : "filter-off"}
-                    on:click={() => {
-                        toggleFilter(filter_item);
-                    }}
-                >
-                    <li>
-                        <div
-                            class="filter-checkbox {filter_state[filter_item]
-                                ? 'checkbox-on'
-                                : 'checkbox-off'}"
+                <li>
+                    <button
+                        type="checkbox"
+                        class="filter-toggle"
+                        on:click={() => {
+                            toggleFilter(filter_item);
+                        }}
+                    >
+                        <input
+                            type="checkbox"
+                            class="filter-checkbox"
+                            checked={filter_state[filter_item]}
                         />
-                        <h4>{filter_item.toUpperCase()}</h4>
-                        {#if use_icons && filter_item != "all"}
-                            <div class="filter-icon">
-                                <Icon name={filter_item} size="1.2em" />
-                            </div>
-                        {/if}
-                    </li>
-                </button>
+                        <div class="filter-text">
+                            <h4>
+                                {filter_item.toUpperCase()}
+                            </h4>
+                            {#if use_icons && filter_item != "all"}
+                                <div class="filter-icon">
+                                    <Icon name={filter_item} size="1.2em" />
+                                </div>
+                            {/if}
+                        </div>
+                    </button>
+                </li>
             {/each}
         </ul>
     {/if}
 </div>
 
-<!-- </Card> -->
-
 <style>
     .dropdown {
         position: relative;
         display: flex;
-        width: 18em;
+        width: 15em;
         margin-left: 1.5em;
     }
 
@@ -92,38 +109,33 @@
         align-items: center;
     }
 
-    .dropdown-header h4 {
+    button {
+        display: flex;
         color: var(--theme-colors-text-body);
         transition: color var(--style-transition-theme);
         opacity: 0.8;
+        background-color: transparent;
+        border: none;
     }
 
-    .dropdown-arrow {
+    button h4 {
+        margin: 0;
+        font-size: 1em;
+        color: var(--theme-colors-text-body);
+        transition: color var(--style-transition-theme);
+    }
+
+    .dropdown-arrow,
+    .filter-icon {
         margin-left: 0.5em;
         display: flex;
         align-items: center;
-        color: var(--theme-colors-text-body);
-        transition: color var(--style-transition-theme);
-        opacity: 0.8;
     }
 
-    .dropdown-header:hover h4 {
+    button:hover {
         color: var(--theme-colors-text-header);
         opacity: 1;
-    }
-
-    .dropdown-header:hover .dropdown-arrow {
-        color: var(--theme-colors-text-header);
-        opacity: 1;
-    }
-
-    .dropdown button:hover {
         cursor: pointer;
-    }
-
-    .dropdown button {
-        background-color: transparent;
-        border: none;
     }
 
     ul {
@@ -135,55 +147,46 @@
         display: flex;
         flex-direction: column;
         list-style: none;
+        margin: 0;
+        margin-top: 0.5em;
         padding-inline: 0;
         padding-block: 0.7em;
-        margin: 0;
         z-index: 1;
         border-radius: 12px;
-        box-shadow: 2px 6px 8px rgba(0, 0, 0, 0.15);
+        box-shadow: 2px 6px 8px rgba(0, 0, 0, 0.18);
     }
 
-    button li {
+    .filter-toggle {
+        margin: 0;
+        width: 100%;
+        justify-content: space-between;
+    }
+
+    .filter-toggle:hover {
+        background-color: var(--theme-colors-label-background);
+    }
+
+    .filter-text {
+        margin-right: 1em;
         display: flex;
         flex-direction: row;
         align-items: center;
-        justify-content: space-between;
-        padding-inline: 1em;
-    }
-
-    .filter-off {
-        background-color: var(--theme-colors-card-background);
-        transition: background-color var(--style-transition-theme);
-    }
-
-    h4 {
-        margin: 0;
-        font-size: 1em;
-        color: var(--theme-colors-label-text);
-        transition: color var(--style-transition-theme);
     }
 
     .filter-checkbox {
+        appearance: none;
         width: 1.3em;
         height: 1.3em;
-        border-radius: 25%;
+        border-radius: 15%;
         border: var(--style-border-width) solid var(--theme-colors-label-border);
-        transition: border var(--style-transition-theme);
+        box-shadow: inset 0 0 0 0.15em var(--theme-colors-card-background);
+        background-color: var(--theme-colors-card-background);
+        transition: box-shadow var(--style-transition-theme),
+            background-color var(--style-transition-theme);
         margin-inline: 1em;
     }
 
-    .checkbox-on {
-        background-color: var(--theme-colors-label-border);
-        transition: background-color var(--style-transition-theme);
-    }
-
-    .checkbox-off {
-        background-color: var(--theme-colors-card-background);
-        transition: background-color var(--style-transition-theme);
-    }
-
-    .filter-icon {
-        color: var(--theme-colors-label-text);
-        transition: color var(--style-transition-theme);
+    .filter-checkbox:checked {
+        background-color: var(--theme-colors-card-highlight);
     }
 </style>

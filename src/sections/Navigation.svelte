@@ -72,7 +72,7 @@
         width: 100%;
         background-color: var(--theme-colors-hero-background);
         transition: background-color var(--style-transition-theme);
-        z-index: 1;
+        z-index: 2;
     }
 
     .nav-container {
