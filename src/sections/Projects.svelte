@@ -69,6 +69,8 @@
     }
     filter_techs = Array.from(filter_techs);
     filter_categories = Array.from(filter_categories);
+    filter_techs.sort();
+    filter_categories.sort();
 
     projects = projects.map((project, idx) => {
         project.id = idx;
@@ -86,7 +88,7 @@
 </script>
 
 <Section title="Projects" id="projects">
-    <ContentList>
+    <ContentList expandable={true}>
         <div class="filter-header">
             <input
                 type="text"
@@ -113,7 +115,7 @@
         <ul>
             {#each visible_projects as project (project.id)}
                 <li
-                    in:fade={{ duration: 100 }}
+                    in:fade={{ duration: 150 }}
                     out:fade={{ duration: 100 }}
                     animate:flip={{ duration: 300 }}
                 >

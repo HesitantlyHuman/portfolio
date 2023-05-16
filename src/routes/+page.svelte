@@ -76,7 +76,7 @@
                     },
                     text: {
                         header: "#1D1E20",
-                        body: "2A3135",
+                        body: "#2A3135",
                         ondark: "#fff",
                     },
                 },

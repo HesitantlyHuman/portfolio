@@ -111,6 +111,26 @@
                     "url": ""
                 }
             ]
+        },
+        {
+            "name": "Svelte Portfolio",
+            "description": "This portfolio app is automatically generated from a json file using svelte. Check out the github repo to see how it works!",
+            "categories": [
+                "Web Dev"
+            ],
+            "image": {
+                "src": "/images/website.jpg",
+                "alt": "monitor with website"
+            },
+            "technologies": [
+                "Svelte"
+            ],
+            "links": [
+                {
+                    "name": "Github",
+                    "url": ""
+                }
+            ]
         }
     ],
     "experience": [

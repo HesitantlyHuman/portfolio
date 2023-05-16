@@ -75,6 +75,7 @@
         width: 23em;
         overflow: hidden;
         background-color: var(--theme-colors-card-accent);
+        transition: background-color var(--style-transition-theme);
         display: flex;
         align-items: center;
         justify-content: center;
