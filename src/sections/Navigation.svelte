@@ -32,6 +32,7 @@
         const target = event.target;
         let href = target.getAttribute("href");
         navigateToSection(href);
+        return false;
     }
 </script>
 

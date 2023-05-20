@@ -24,6 +24,10 @@
             <div class="style_box" />
         </div>
     </Card>
+    <div class="triangle">
+        <div class="background-triangle" />
+        <div class="highlight-triangle" />
+    </div>
     <div class="duration">
         <p>{duration}</p>
     </div>
@@ -43,15 +47,17 @@
 
     article .duration {
         flex: 1;
-        margin-left: 2em;
+        margin-left: 6em;
     }
 
     article .card {
         border-radius: 12px;
         display: flex;
         background-color: var(--theme-colors-card-background);
-        transition: background-color var(--style-transition-theme);
-        width: 60em;
+        transition: background-color, box-shadow var(--style-transition-theme);
+        width: 50em;
+        box-shadow: 0 0 0 var(--style-border-width)
+            var(--theme-colors-card-background) inset;
     }
 
     article:is(:hover, :focus-within) {
@@ -61,6 +67,7 @@
     article:is(:hover, :focus-within) .card {
         box-shadow: 0 0 0 var(--style-border-width) var(--local-colors-accent)
             inset;
+        width: 53.5em;
     }
 
     article .card .style_box {
@@ -75,6 +82,7 @@
         font-family: "Work Sans", sans-serif;
         font-weight: 400;
         text-align: center;
+        font-size: 1.25em;
     }
 
     article .card .info {
@@ -124,5 +132,34 @@
     article .card .info footer a {
         color: var(--theme-colors-text-body);
         transition: color var(--style-transition-theme);
+    }
+
+    .triangle {
+        position: relative;
+    }
+
+    .highlight-triangle {
+        position: absolute;
+        top: -1.125em;
+        width: 0;
+        height: 0;
+        border-top: 1.125em solid transparent;
+        border-bottom: 1.125em solid transparent;
+        z-index: 1;
+        border-left: 1.8em solid var(--local-colors-accent);
+        transition: border-left var(--style-transition-theme);
+    }
+
+    .background-triangle {
+        position: absolute;
+        top: -2em;
+        width: 0;
+        height: 0;
+        border-top: 2em solid transparent;
+        border-bottom: 2em solid transparent;
+        z-index: 1;
+
+        border-left: 3em solid var(--theme-colors-section);
+        transition: border-left var(--style-transition-theme);
     }
 </style>

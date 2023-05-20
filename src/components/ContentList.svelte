@@ -2,7 +2,7 @@
     import Icon from "./Icon.svelte";
 
     export let expandable = false;
-    let open = !expandable;
+    let open = false;
 
     function toggleContentList() {
         open = !open;
@@ -23,7 +23,7 @@
 <style>
     .list-container {
         background-color: var(--theme-colors-section);
-        padding: 2.5em;
+        padding: 3em;
         border-radius: 12px;
         overflow: hidden;
         transition: background-color var(--style-transition-theme);

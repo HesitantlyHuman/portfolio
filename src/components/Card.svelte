@@ -15,8 +15,6 @@
     }
 
     .hover:hover {
-        box-shadow: 3px 8px 9px rgba(0, 0, 0, 0.135);
-        /* transition: all 0.1s ease;
-        transform: scale(1.002); */
+        box-shadow: 4px 12px 12px rgba(0, 0, 0, 0.125);
     }
 </style>

@@ -132,6 +132,10 @@
         align-items: center;
     }
 
+    .filter-icon {
+        margin-left: 1em;
+    }
+
     button:hover {
         color: var(--theme-colors-text-header);
         opacity: 1;

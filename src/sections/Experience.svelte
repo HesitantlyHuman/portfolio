@@ -8,6 +8,7 @@
 
 <Section title="Experience" id="experience">
     <ContentList>
+        <hr />
         {#each experience as job}
             <ExperienceCard
                 company={job.company}
@@ -19,3 +20,16 @@
         {/each}
     </ContentList>
 </Section>
+
+<style>
+    hr {
+        position: absolute;
+        top: 0;
+        right: 22em;
+        margin: 0;
+        width: 0;
+        height: 100%;
+        border-bottom: var(--style-border-width) solid
+            var(--theme-colors-card-accent);
+    }
+</style>
