@@ -26,9 +26,17 @@
 
         if (filter_text && filter_text !== "") {
             visible =
-                visible &&
-                (project.name.toLowerCase().includes(filter_text) ||
-                    project.description.toLowerCase().includes(filter_text));
+                (visible &&
+                    (project.name.toLowerCase().includes(filter_text) ||
+                        project.description
+                            .toLowerCase()
+                            .includes(filter_text))) ||
+                project.technologies.some((tech) =>
+                    tech.toLowerCase().includes(filter_text)
+                ) ||
+                project.categories.some((cat) =>
+                    cat.toLowerCase().includes(filter_text)
+                );
         }
 
         if (filter_techs.length > 0) {

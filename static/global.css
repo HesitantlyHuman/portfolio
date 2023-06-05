@@ -51,5 +51,5 @@ p {
 	font-family: "IBM Plex Mono", monospace;
 	color: var(--theme-colors-text-body);
 	transition: color var(--style-transition-theme);
-	line-height: 2;
+	line-height: 2.1;
 }

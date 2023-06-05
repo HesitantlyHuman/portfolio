@@ -146,10 +146,9 @@
         viewBox="-4 -6 60 60"
         fill="currentColor"
         height={size}
-        alt="email"
     >
-        <circle cx="25.5" cy="24" r="29.5" mask="url(#a)" />
-        <mask id="a" fill="#000"
+        <circle cx="25.5" cy="24" r="29.5" mask="url(#b)" />
+        <mask id="b" fill="#000"
             ><rect width="100%" height="100%" x="-4" y="-6" fill="#fff" /><path
                 d="m5.1 14.1 20.5 9.6 20.5-9.6A5 5 0 0 0 41 9.6H10.2a5 5 0 0 0-5 4.5Z"
             /><path

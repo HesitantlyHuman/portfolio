@@ -8,32 +8,36 @@
     export let link = null;
 </script>
 
-<article>
-    <Card>
-        <div class="card">
-            <div class="info">
-                <h3>{company}</h3>
-                <h4>{position.toUpperCase()}</h4>
-                <summary><p>{description}</p></summary>
-                {#if link}
-                    <footer>
-                        <a href={link.url}>{link.name} ></a>
-                    </footer>
-                {/if}
+<div class="hover-region">
+    <article>
+        <Card>
+            <div class="card">
+                <div class="info">
+                    <h3>{company}</h3>
+                    <h4>{position.toUpperCase()}</h4>
+                    <summary><p>{description}</p></summary>
+                    {#if link}
+                        <a href={link.url}> <footer>{link.name}</footer></a>
+                    {/if}
+                </div>
+                <div class="style_box" />
             </div>
-            <div class="style_box" />
+        </Card>
+        <div class="triangle">
+            <div class="background-triangle" />
+            <div class="highlight-triangle" />
         </div>
-    </Card>
-    <div class="triangle">
-        <div class="background-triangle" />
-        <div class="highlight-triangle" />
-    </div>
-    <div class="duration">
-        <p>{duration}</p>
-    </div>
-</article>
+        <div class="duration">
+            <p>{duration}</p>
+        </div>
+    </article>
+</div>
 
 <style>
+    .hover-region {
+        margin: 0;
+    }
+
     :root {
         --local-colors-accent: var(--theme-colors-card-accent);
     }
@@ -43,6 +47,7 @@
         flex-direction: row;
         align-items: center;
         justify-content: space-between;
+        padding: 0.75em 0;
     }
 
     article .duration {
@@ -53,11 +58,15 @@
     article .card {
         border-radius: 12px;
         display: flex;
+        flex-direction: row;
         background-color: var(--theme-colors-card-background);
-        transition: background-color, box-shadow var(--style-transition-theme);
         width: 50em;
+        max-height: 12em;
         box-shadow: 0 0 0 var(--style-border-width)
             var(--theme-colors-card-background) inset;
+        transition: box-shadow var(--style-transition-theme),
+            background-color var(--style-transition-theme),
+            width 0.3s ease-in-out, max-height 0.3s ease-in-out;
     }
 
     article:is(:hover, :focus-within) {
@@ -68,12 +77,13 @@
         box-shadow: 0 0 0 var(--style-border-width) var(--local-colors-accent)
             inset;
         width: 53.5em;
+        max-height: 30em;
     }
 
     article .card .style_box {
         background-color: var(--local-colors-accent);
         transition: background-color var(--style-transition-theme);
-        width: 10em;
+        width: 7em;
     }
 
     article .duration p {
@@ -86,16 +96,25 @@
     }
 
     article .card .info {
+        height: 100%;
         display: flex;
         flex-direction: column;
-        padding-inline: 5em;
+        justify-content: center;
+        padding-inline: 4em;
         padding-block: 3em;
         margin-left: auto;
         flex: 1;
     }
 
+    article .card .info h3 {
+        padding: 0;
+        margin: 0;
+    }
+
     article .card .info h4 {
         color: #9ba0a2;
+        padding: 0;
+        margin-top: 0.3em;
     }
 
     article:is(:hover, :focus-within) .card .info summary {
@@ -105,17 +124,20 @@
     article .card .info summary {
         height: 0;
         overflow: hidden;
-        transition: 0.8s ease-in-out;
+        transition: height 0.3s ease-in-out;
     }
 
     article:is(:hover, :focus-within) .card .info footer {
-        height: 100%;
+        display: block;
     }
 
     article .card .info footer {
-        height: 0;
-        overflow: hidden;
-        transition: 0.8s ease-in-out;
+        display: none;
+    }
+
+    a {
+        text-decoration: none;
+        color: var(--local-colors-accent);
     }
 
     article .info > * {
@@ -127,11 +149,6 @@
 
     article .info > *:first-child {
         margin-top: 1em;
-    }
-
-    article .card .info footer a {
-        color: var(--theme-colors-text-body);
-        transition: color var(--style-transition-theme);
     }
 
     .triangle {
